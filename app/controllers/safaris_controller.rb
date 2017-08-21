@@ -27,4 +27,5 @@ class SafarisController < ApplicationController
   def destroy
 
   end
+
 end
