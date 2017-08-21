@@ -28,4 +28,8 @@ class SafarisController < ApplicationController
 
   end
 
+  def search
+
+  end
+
 end
