@@ -8,6 +8,8 @@ gem 'puma'
 gem 'rails', '5.0.5'
 gem 'redis'
 gem 'devise'
+gem 'cloudinary'
+gem 'carrierwave', '~> 0.11.2'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
