@@ -2,7 +2,11 @@ class SafarisController < ApplicationController
   before_action :set_safari
 
   def index
-    @safaris = Safari.all
+    if params[:title].present?
+      @safaris = Safari.where(title: params[:title])
+    else
+      @safaris = Safari.all
+    end
   end
 
    def show
@@ -39,7 +43,7 @@ class SafarisController < ApplicationController
   private
 
   def safari_params
-    params.require(:safari).permit(:title, :location, :price, :description, :capacity, :date)
+    params.require(:safari).permit(:title, :location, :price, :description, :capacity, :date, {photos: []})
   end
 
   def set_safari
