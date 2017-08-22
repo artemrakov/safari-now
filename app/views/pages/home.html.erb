@@ -1,10 +1,12 @@
+
+
 <div class="home">
   <div>
     <h1 class="text-center">Safari Now</h1>
-    <form action="#">
-      <input type="text">
-      <input type="submit" value="Search">
-    </form>
+    <%= form_tag safaris_path, :method => 'get' do %>
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search" %>
+    <% end %>
   </div>
 </div>
 
