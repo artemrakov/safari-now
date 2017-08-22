@@ -5,34 +5,9 @@
   // background-position: center;
   // color: white;
   // position: relative;
+  z-index: -1;
 }
 
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
-}
-
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
-}
 
 .card-stars {
   display: flex;
@@ -45,6 +20,7 @@
 .swiper-container {
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 .swiper-slide {
   text-align: center;
@@ -63,4 +39,5 @@
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  z-index: -1;
 }
