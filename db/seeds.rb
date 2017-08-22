@@ -1,13 +1,13 @@
 require 'faker'
-puts "Destroying Safaris"
-Safari.destroy_all
-puts "Destroyed them"
-puts "Destroying Bookings"
 Booking.destroy_all
-puts "Destroyed them too"
-puts "Destroying all users"
+puts "Destroying Bookings"
+puts "Destroyed all bookings"
+Safari.destroy_all
+puts "Destroying Safaris"
+puts "Destroyed them"
 User.destroy_all
 puts "Destroyed users"
+puts "Destroying them too"
 
 # Seeding Users
 user_pic_array = [ "http://xdesktopwallpapers.com/wp-content/uploads/2012/07/Scott%20Porter%20Looking%20At%20Camera%20And%20White%20Background.jpg",

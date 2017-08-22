@@ -2,7 +2,8 @@
 
   <div class="show-banner-content">
     <h2><%= @safari.title %></h2>
-    <img class="safari-owner" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+    <%= cl_image_tag @user.avatar_url, class: "safari-owner" %>
+
   <a class="safari-owner-link" href="#" ></a>
   </div>
 
