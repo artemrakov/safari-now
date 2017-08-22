@@ -1,0 +1,56 @@
+<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/259411/pexels-photo-259411.jpeg');">
+
+  <div class="show-banner-content">
+    <h2><%= @safari.title %></h2>
+    <img class="safari-owner" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="safari-owner-link" href="#" ></a>
+  </div>
+
+</div>
+
+
+<div class="info">
+  <div class="summary">
+    <p>£<%= @safari.price %></p>
+  </div>
+  <div class="book-button">
+    <a href="#">Book now</a>
+  </div>
+
+  <h3><%= @safari.location %> - <%= @safari.date %></h3>
+  <p><%= @safari.description %></p>
+</div>
+
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+<%= content_for(:before_js) do %>
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyCMtlyoljyulu4QGTB6SxcjUMxW-lCmv2I" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+<% end %>
+
+<% content_for(:after_js) do %>
+  <script>
+    $(document).ready(function() {
+      var handler = Gmaps.build('Google');
+      handler.buildMap({ internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers([<%= raw @safari_coordinates.to_json %>]);
+        handler.bounds.extendWith(markers);
+        handler.fitMapToBounds();
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(6);
+        }
+      });
+    });
+  </script>
+<% end %>
+
+
+<div class="reviews">
+
+</div>
+
+

@@ -9,7 +9,6 @@ puts "Destroying all users"
 User.destroy_all
 puts "Destroyed users"
 
-
 # Seeding Users
 user_pic_array = [ "http://xdesktopwallpapers.com/wp-content/uploads/2012/07/Scott%20Porter%20Looking%20At%20Camera%20And%20White%20Background.jpg",
 "https://profile.microsoft.com/RegsysProfileCenter/Images/personal_info.jpg",

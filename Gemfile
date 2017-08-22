@@ -10,6 +10,14 @@ gem 'redis'
 gem 'devise'
 gem 'cloudinary'
 gem 'carrierwave', '~> 1.0'
+gem 'geocoder'
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
