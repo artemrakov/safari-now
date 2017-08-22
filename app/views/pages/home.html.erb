@@ -1,9 +1,11 @@
-
+<% content_for(:title_tag) do %>
+  Safari Now
+<% end %>
 
 <div class="home">
   <div>
     <h1 class="text-center">Safari Now</h1>
-    <%= form_tag safaris_path, :method => 'get' do %>
+    <%= form_for safaris_path, :method => 'get' do %>
       <%= text_field_tag :search, params[:search] %>
       <%= submit_tag "Search" %>
     <% end %>
