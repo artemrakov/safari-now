@@ -9,9 +9,13 @@
     <%= stylesheet_link_tag 'application', media: 'all' %>
   </head>
   <body>
+
+    <%= render partial: 'layouts/navbar' %>
+    <div class="container">
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+    </div>
     <%= yield(:before_js) %>
 
     <%= javascript_include_tag "application" %>
