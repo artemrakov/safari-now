@@ -8,6 +8,11 @@
   z-index: -1;
 }
 
+.card-info {
+  background-color: white;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 5px #B0B0B0;
+}
 
 .card-stars {
   display: flex;
@@ -15,6 +20,10 @@
 
 .card-image {
   height: 175px;
+}
+
+.footer-box {
+  padding: 10px 20px;
 }
 
 .swiper-container {
