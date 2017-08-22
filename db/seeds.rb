@@ -1,6 +1,6 @@
-User.destroy_all
-Safari.destroy_all
 Booking.destroy_all
+Safari.destroy_all
+User.destroy_all
 
 user_1 = User.create(name: "hello", email: "hello@lewagon.com", password: "123456")
 

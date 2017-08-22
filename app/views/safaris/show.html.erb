@@ -1,0 +1,32 @@
+<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/259411/pexels-photo-259411.jpeg');">
+
+  <div class="show-banner-content">
+    <h2><%= @safari.title %></h2>
+  </div>
+
+</div>
+
+
+<div class="info">
+  <div class="summary">
+    <p>£<%= @safari.price %></p>
+  </div>
+  <div class="book-button">
+    <a href="#">Book now</a>
+  </div>
+
+  <h3><%= @safari.location %> - <%= @safari.date %></h3>
+  <p><%= @safari.description %></p>
+</div>
+
+
+<div id="map" style="width: 100%; height: 400px;"></div>
+
+      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+
+
+<div class="reviews">
+
+</div>
+
+
