@@ -2,22 +2,25 @@
 <%= "#{@user.name}'s Profile" %>
 <% end %>
 
-<div class="user-info">
-  <div class="info-text">
-    <h1>Hey I'm <%= @user.name %>!</h1>
-    <p><%= @user.description %></p>
-    <p>You can get hold of me at <%= @user.email %></p>
+<div class="container">
+  <div class="user-info">
+    <div class="info-text">
+      <h1>Hey I'm <%= @user.name %>!</h1>
+      <p><%= @user.description %></p>
+      <p>You can get hold of me at <%= @user.email %></p>
+    </div>
+    <div class="user-avatar">
+    </div>
   </div>
-  <div class="user-avatar">
+
+  <div class="safaris-info">
+    <h2>Here are the safaris I run</h2>
+    <ul>
+      <% @user.created_safaris.each do |safari| %>
+        <li><%= safari.title %></li>
+      <% end %>
+    </ul>
+
   </div>
 </div>
 
-<div class="safaris-info">
-  <h2>Here are the safaris I run</h2>
-  <ul>
-    <% @user.created_safaris.each do |safari| %>
-      <li><%= safari.title %></li>
-    <% end %>
-  </ul>
-
-</div>
