@@ -1,10 +1,9 @@
 // Specific CSS for your home-page
-body {
+
+.home {
   background-image: linear-gradient(-225deg, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.1) 50%), url("https://source.unsplash.com/EwE4tBYh3ms");
   background-position: center;
   background-size: cover;
-}
-.home {
   height: 100vh;
   display: flex;
   justify-content: space-around;
