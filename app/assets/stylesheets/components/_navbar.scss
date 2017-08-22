@@ -1,5 +1,6 @@
 /* Main navbar */
 .navbar-wagon {
+  font-family: 'avenir';
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   transition: all 0.3s ease;
@@ -8,11 +9,23 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
+  margin: 0;
+  width: 100%;
+  top: 0;
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
+.navbar-wagon-brand {
+  display: flex;
+  img {
+    height: 50px;
+    margin-right: 8px;
+  }
+  p {
+    font-family: 'Concert One', cursive;
+    font-size: 1.7em;
+  }
 }
 
 /* User Avatar */
@@ -26,19 +39,20 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 20px;
+  padding: 0;
+  margin: 0;
 }
 
 /* Navbar link */
 .navbar-wagon-link {
   color: #616668;
-  font-size: 14px;
+  font-size: 16px;
 }
 .navbar-wagon-link:hover {
   color: #da552f;
@@ -74,4 +88,23 @@
   transform: rotate(45deg);
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
+}
+
+.input-group {
+  display: flex;
+  justify-content: center;
+}
+
+.form-control {
+  border-radius: 50px;
+  width: 200px;
+}
+
+.btn-default {
+  border-radius: 0% 50% 50% 0%;
+  width: 50px;
+}
+
+.glyphicon {
+  margin-right: 4px;
 }
