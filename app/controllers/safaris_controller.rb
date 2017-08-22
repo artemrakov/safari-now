@@ -1,5 +1,5 @@
 class SafarisController < ApplicationController
-  before_action :set_safari
+  before_action :set_safari, only: [:show]
 
   def index
     if params[:title].present?
@@ -11,6 +11,7 @@ class SafarisController < ApplicationController
 
    def show
     @safari = Safari.find(params[:id])
+    @safari_coordinates = { lat: @safari.latitude, lng: @safari.longitude }
   end
 
 

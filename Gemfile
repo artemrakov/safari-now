@@ -9,7 +9,15 @@ gem 'rails', '5.0.5'
 gem 'redis'
 gem 'devise'
 gem 'cloudinary'
-gem 'carrierwave', '~> 0.11.2'
+gem 'carrierwave', '~> 1.0'
+gem 'geocoder'
+gem "coffee-rails"
+gem "gmaps4rails"
+
+source 'https://rails-assets.org' do
+  gem "rails-assets-underscore"
+end
+
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'
@@ -26,4 +34,5 @@ group :development, :test do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'faker'
 end
