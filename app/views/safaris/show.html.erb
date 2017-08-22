@@ -2,6 +2,8 @@
 
   <div class="show-banner-content">
     <h2><%= @safari.title %></h2>
+    <img class="safari-owner" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
+  <a class="safari-owner-link" href="#" ></a>
   </div>
 
 </div>
@@ -22,7 +24,14 @@
 
 <div id="map" style="width: 100%; height: 400px;"></div>
 
-      <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>
+<% content_for(:after_js) do %>
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var coord = <%= raw @safari_coordinates.to_json %>;
+      alert('Safari coordinates are ' + coord.lat + ', ' + coord.lng);
+    });
+  <% end %>
+<% end %>
 
 
 <div class="reviews">
