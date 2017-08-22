@@ -1,5 +1,5 @@
 class SafarisController < ApplicationController
-  before_action :set_safari
+  before_action :set_safari, only: [:show]
 
   def index
     if params[:title].present?
