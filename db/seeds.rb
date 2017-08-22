@@ -23,7 +23,7 @@ counter = 1
 10.times do
   photo_url = user_pic_array.sample
   full_name = Faker::GameOfThrones.character.split(' ')
-  user = User.create(first_name: full_name[0], last_name: full_name[1], email: Faker::Internet.email(name.split(" ").first), description: Faker::Lorem.paragraph,  password: "password", remote_avatar_url: photo_url)
+  user = User.create(first_name: full_name[0], last_name: full_name[1], email: Faker::Internet.email, description: Faker::Lorem.paragraph,  password: "password", remote_avatar_url: photo_url)
   puts "Created user number #{counter}"
   counter += 1
 end
