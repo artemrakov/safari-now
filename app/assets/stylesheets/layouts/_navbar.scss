@@ -1,5 +1,6 @@
 /* Main navbar */
 .navbar-wagon {
+  font-family: 'avenir';
   box-shadow: 0 1px 5px 0 rgba(0,0,0,0.07),0 1px 0 0 rgba(0,0,0,0.03);
   background: white;
   transition: all 0.3s ease;
@@ -14,10 +15,15 @@
 }
 
 /* Logo */
-.navbar-wagon-brand img {
-  height: 50px;
-  font-family: 'Concert One', cursive;
-  font-size: 1.7em;
+.navbar-wagon-brand {
+  display: flex;
+  img {
+    height: 50px;
+  }
+  p {
+    font-family: 'Concert One', cursive;
+    font-size: 1.7em;
+  }
 }
 
 /* User Avatar */
@@ -31,13 +37,14 @@
 .navbar-wagon-right {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
 }
 
 /* Basic navbar item */
 .navbar-wagon-item {
   cursor: pointer;
-  padding: 0 8px;
+  padding: 0;
+  margin: 0;
 }
 
 /* Navbar link */
@@ -98,5 +105,7 @@
 .glyphicon {
   margin-right: 4px;
 }
+
+
 
 
