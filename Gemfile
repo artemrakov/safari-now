@@ -9,7 +9,7 @@ gem 'rails', '5.0.5'
 gem 'redis'
 gem 'devise'
 gem 'cloudinary'
-gem 'carrierwave', '~> 1'
+gem 'carrierwave', '~> 1.0'
 
 gem 'autoprefixer-rails'
 gem 'bootstrap-sass'

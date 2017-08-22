@@ -207,7 +207,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
-  carrierwave (~> 1)
+  carrierwave (~> 1.0)
   cloudinary
   devise
   figaro
