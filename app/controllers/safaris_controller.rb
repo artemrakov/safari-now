@@ -22,14 +22,17 @@ class SafarisController < ApplicationController
 
 
   def new
-    @safari = Safari.new()
+    unless current_user
+      redirect_to new_user_session_url
+    end
+    @safari = Safari.new
   end
 
   def create
     @safari = Safari.new(safari_params)
     @safari.user = current_user
     if @safari.save
-      redirect_to safari_path
+      redirect_to safari_path(@safari)
     else
       render :new
     end
@@ -50,7 +53,7 @@ class SafarisController < ApplicationController
   private
 
   def safari_params
-    params.require(:safari).permit(:title, :location, :price, :description, :capacity, :date, {photos: []})
+    params.require(:safari).permit(:title, :address, :price, :description, :capacity, :date, :photos, :photos_cache)
   end
 
   def set_safari
