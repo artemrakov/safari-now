@@ -6,6 +6,13 @@
   // color: white;
   // position: relative;
   z-index: -1;
+  height: 175px;
+}
+
+.footer-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .card-info {
@@ -15,7 +22,7 @@
 }
 
 .card-stars {
-  display: flex;
+  // display: flex;
   p {
     font-family: "Montserrat";
     font-weight: 300;
@@ -28,6 +35,8 @@
 .card-footer-info {
   font-family: "Montserrat";
   font-weight: normal;
+  font-size: 16px;
+  margin-top: 3px;
 }
 
 .card-image {
@@ -35,8 +44,17 @@
 }
 
 .footer-box {
-  padding: 10px 20px;
+  padding: 10px;
+  height: 120px;
 }
+
+.card-count p {
+  font-size: 14px;
+}
+
+// .stars-and-count {
+//   margin-top: 30px;
+// }
 
 .swiper-container {
   width: 100%;

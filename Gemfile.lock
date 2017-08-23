@@ -240,7 +240,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
-  carrierwave (~> 1.0)
+  carrierwave
   cloudinary
   coffee-rails
   devise

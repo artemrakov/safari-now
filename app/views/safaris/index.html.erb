@@ -1,50 +1,28 @@
- <div class="container">
-   <div class="row">
-    <% @safaris.each do |safari| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card-info">
-          <div class="swiper-container">
-            <div class="swiper-wrapper">
-              <div class="swiper-slide">
-                <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
-              </div>
-              <div class="swiper-slide">
-              <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
-              </div>
-              <div class="swiper-slide">
-              <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
-              </div>
-            </div>
-            <!-- Add Pagination -->
-            <div class="swiper-pagination"></div>
-            <!-- Add Arrows -->
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
-          <div class="card-footer-description">
-            <div class="footer-box">
-              <div class="card-footer-info">
-                <p> From 202$ Safari Africa </p>
-              </div>
-              <div class="card-stars">
-                <% 5.times do  %>
-                  <i class="fa fa-star" aria-hidden="true"></i>
-                <% end %>
-                <p> 250 reviews</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    <% end %>
+ <div class="flexbox">
+   <div class="cards-container">
+     <div class="row">
+      <% @safaris.each do |safari| %>
+        <%= link_to safari_path(safari) do %>
+            <%= render 'shared/card', safari: safari %>
+          <% end %>
+        <% end %>
+     </div>
    </div>
- </div>
+
+  <div id="map"></div>
+</div>
+
+<%= content_for(:before_js) do %>
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyCMtlyoljyulu4QGTB6SxcjUMxW-lCmv2I" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+<% end %>
 
 
-    <!-- Initialize Swiper -->
-    <% content_for(:after_js) do %>
-    <%= javascript_tag do %>
-  var swiper = new Swiper('.swiper-container', {
+<% content_for(:after_js) do %>
+<!-- Initialize Swiper -->
+  <%= javascript_tag do %>
+    var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         slidesPerView: 1,
         paginationClickable: true,
@@ -53,5 +31,146 @@
         nextButton: '.swiper-button-next',
         prevButton: '.swiper-button-prev',
     });
-    <% end %>
-    <% end %>
+  <% end %>
+
+<!-- Init map -->
+  <%= javascript_tag do %>
+    $(document).ready(function() {
+      var styles =
+[
+    {
+        "featureType": "administrative",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "administrative.country",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "road.local",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "color": "#3f518c"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            },
+            {
+                "color": "#84afa3"
+            },
+            {
+                "lightness": 52
+            }
+        ]
+    }
+];
+
+      var handler = Gmaps.build('Google');
+
+      handler.buildMap({
+        provider: { styles: styles },
+        internal: { id: 'map' } }, function() {
+        markers = handler.addMarkers(<%= raw @hash.to_json %>);
+
+        handler.bounds.extendWith(markers);
+
+        handler.fitMapToBounds();
+
+        if (markers.length == 0) {
+          handler.getMap().setZoom(2);
+        } else if (markers.length == 1) {
+          handler.getMap().setZoom(14);
+        }
+      });
+    });
+  <% end %>
+<% end %>

@@ -5,10 +5,22 @@
 <div class="home">
   <div>
     <%= form_tag safaris_path, :method => 'get', enforce_utf8: false do %>
-      <%= text_field_tag :search, params[:search], placeholder:"Where to?" %>
+      <%= text_field_tag :search, params[:search], placeholder:"Where's your next adventure?" %>
       <%= button_tag(type: 'submit')  do %>
         <i class="fa fa-search" aria-hidden="true"></i>
       <% end %>
     <% end %>
   </div>
 </div>
+
+<% content_for(:after_js) do %>
+<script type="text/javascript">
+  const input = document.querySelectorAll('input');
+    for(i=0; i<input.length; i++){
+      if (input[i].hasAttribute('placeholder')) {
+      input[i].setAttribute('size',input[i].getAttribute('placeholder').length);
+    }
+  }
+</script>
+<% end %>
+

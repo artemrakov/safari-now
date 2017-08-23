@@ -2,10 +2,18 @@ class SafarisController < ApplicationController
   before_action :set_safari, only: [:show]
 
   def index
-    if params[:title].present?
-      @safaris = Safari.where(title: params[:title])
+    if params[:search].present?
+      @safaris = Safari.where(title: params[:search])
+      if @safaris == []
+        @safaris = Safari.where.not(latitude: nil, longitude: nil)
+      end
     else
-      @safaris = Safari.all
+      @safaris = Safari.where.not(latitude: nil, longitude: nil)
+    end
+    @hash = Gmaps4rails.build_markers(@safaris) do |safari, marker|
+      marker.lat safari.latitude
+      marker.lng safari.longitude
+      # marker.infowindow render_to_string(partial: "/safaris/map_box", locals: { safari: safari })
     end
   end
 
@@ -17,14 +25,21 @@ class SafarisController < ApplicationController
 
 
   def new
-    @safari = Safari.new()
+    unless current_user
+      redirect_to new_user_session_url
+    end
+    @safari = Safari.new
+    @safari_images = @safari.safari_images.build
   end
 
   def create
     @safari = Safari.new(safari_params)
     @safari.user = current_user
     if @safari.save
-      redirect_to safari_path
+      params[:safari_images]['photo'].each do |p|
+        @safari.safari_images.create!(photo: p)
+      end
+      redirect_to safari_path(@safari)
     else
       render :new
     end
@@ -45,7 +60,7 @@ class SafarisController < ApplicationController
   private
 
   def safari_params
-    params.require(:safari).permit(:title, :location, :price, :description, :capacity, :date, {photos: []})
+    params.require(:safari).permit(:title, :address, :price, :description, :capacity, :date, safari_images: [:id, :safari_id, :photo])
   end
 
   def set_safari
