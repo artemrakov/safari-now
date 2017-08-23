@@ -5,46 +5,43 @@
   // background-position: center;
   // color: white;
   // position: relative;
+  z-index: -1;
 }
 
-.card-user {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  width: 40px;
-  border-radius: 50%;
-}
-
-.card-description {
-  position: absolute;
-  bottom: 10px;
-  left: 10px;
-}
-.card-link {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  width: 100%;
-  z-index: 2;
-  background: black;
-  opacity: 0;
-}
-.card-link:hover {
-  opacity: 0.1;
+.card-info {
+  background-color: white;
+  margin-bottom: 20px;
+  box-shadow: 1px 1px 5px #B0B0B0;
 }
 
 .card-stars {
   display: flex;
+  p {
+    font-family: "Montserrat";
+    font-weight: 300;
+    font-size: 16px;
+    margin-left: 10px;
+    margin-bottom: 0;
+  }
+}
+
+.card-footer-info {
+  font-family: "Montserrat";
+  font-weight: normal;
 }
 
 .card-image {
   height: 175px;
 }
 
+.footer-box {
+  padding: 10px 20px;
+}
+
 .swiper-container {
   width: 100%;
   height: 100%;
+  z-index: -1;
 }
 .swiper-slide {
   text-align: center;
@@ -63,4 +60,5 @@
   -ms-flex-align: center;
   -webkit-align-items: center;
   align-items: center;
+  z-index: -1;
 }
