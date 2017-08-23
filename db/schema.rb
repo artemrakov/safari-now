@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170823130600) do
-
+ActiveRecord::Schema.define(version: 20170823153310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +25,14 @@ ActiveRecord::Schema.define(version: 20170823130600) do
     t.index ["user_id"], name: "index_bookings_on_user_id", using: :btree
   end
 
+  create_table "safari_images", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string   "photo"
+    t.integer  "safari_id"
+    t.index ["safari_id"], name: "index_safari_images_on_safari_id", using: :btree
+  end
+
   create_table "safaris", force: :cascade do |t|
     t.string   "title"
     t.string   "address"
@@ -36,7 +43,6 @@ ActiveRecord::Schema.define(version: 20170823130600) do
     t.string   "date"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.json     "photos"
     t.float    "latitude"
     t.float    "longitude"
     t.index ["user_id"], name: "index_safaris_on_user_id", using: :btree
@@ -87,5 +93,6 @@ ActiveRecord::Schema.define(version: 20170823130600) do
 
   add_foreign_key "bookings", "safaris"
   add_foreign_key "bookings", "users"
+  add_foreign_key "safari_images", "safaris"
   add_foreign_key "safaris", "users"
 end
