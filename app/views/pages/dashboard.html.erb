@@ -1,22 +1,53 @@
 <div class="container">
-<div class="row">
-  <div class="col-xs-12 col-sm-4">
-    <%= @user.avatar %>
-  </div>
-  <div class="col-xs-12 col-sm-8">
-    <% @user_bookings.each do |booking| %>
-      <div class="dashboard-messages">
-        <div class="avatar-safari-dashboard">
-          <% booking.safari.user.avatar %>
-        </div>
-        <div class="safari-message">
-          <%= booking.safari.name %>
-        </div>
-        <div class="booking-info">
-          <%= booking.status %>
-        </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-4">
+      <%= cl_image_tag "rmrbusexvqtg7sll75qn.jpg", class: "avatar-dashboard" %>
+      <div class="links-dashboard">
+
       </div>
-    <% end %>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <h2 class="h2-bookings">Your bookings</h2>
+        <div class="all-messages">
+      <%# @user_bookings.each do |booking| %>
+          <div class="dashboard-messages">
+              <%= cl_image_tag "gftvny8f20oz3wdyyznu.png", class: "avatar-dashboard-booking" %>
+              <div class="user-name">
+                <h4> Artem Rakov </h4>
+              </div>
+              <%# booking.safari.user.avatar %>
+              <%# booling.safari.user.first_name %>
+
+            <div class="safari-message">
+              <%# booking.safari.name %>
+              <h4> Safari Africa </h4>
+              <p> Very interesting, a lot of animals</p>
+            </div>
+            <div class="booking-info">
+              <%# booking.status %>
+              <p> Pending </p>
+            </div>
+          </div>
+          <div class="dashboard-messages">
+              <%= cl_image_tag "gftvny8f20oz3wdyyznu.png", class: "avatar-dashboard-booking" %>
+              <div class="user-name">
+                <h4> Artem Rakov </h4>
+              </div>
+              <%# booking.safari.user.avatar %>
+              <%# booling.safari.user.first_name %>
+
+            <div class="safari-message">
+              <%# booking.safari.name %>
+              <h4> Safari Africa </h4>
+              <p> Very interesting, a lot of animals</p>
+            </div>
+            <div class="booking-info">
+              <%# booking.status %>
+              <p> Pending </p>
+            </div>
+          </div>
+        </div>
+    <%# end %>
+    </div>
   </div>
-</div>
 </div>
