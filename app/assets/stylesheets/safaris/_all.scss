@@ -1,0 +1,25 @@
+.flexbox {
+  display: flex;
+}
+
+#map {
+  flex: 1 0 auto;
+  height: 100vh;
+  position: sticky !important; /* !important to override Gmaps inline CSS */
+  top: 70px !important;
+}
+
+.cards-container {
+  width: 60%;
+  padding: 20px;
+}
+
+@media (max-width: 425px) {
+  .flexbox {
+    display: block;
+  }
+
+  .cards-container {
+    width: auto;
+  }
+}

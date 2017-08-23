@@ -11,6 +11,7 @@ class SafarisController < ApplicationController
       marker.lat safari.latitude
       marker.lng safari.longitude
       # marker.infowindow render_to_string(partial: "/safaris/map_box", locals: { safari: safari })
+    end
   end
 
    def show
