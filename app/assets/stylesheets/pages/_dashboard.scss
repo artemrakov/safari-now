@@ -15,7 +15,29 @@
   opacity: 0.4;
   margin-top: 5px;
   }
+}
+.edit-dashboard {
+  text-align: center;
+  padding: 10px;
 
+  h2 {
+    margin-top: 0;
+    font-size: 32px;
+    font-family: "Montserrat";
+  }
+
+  a {
+    font-size: 14px;
+  }
+}
+
+.category-dashboard-current {
+  background-color:color;
+  border: 1px solid #DCE0E0;
+}
+
+.profile-info {
+  background-color: white;
 }
 
 .user-name {
@@ -31,8 +53,8 @@
   background-color: white;
 }
 .avatar-dashboard  {
-  height: 100px;
-  border-radius: 20%;
+  height: auto;
+  width: 100%;
 }
 
 .avatar-safari-dashboard {
