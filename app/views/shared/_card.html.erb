@@ -3,10 +3,10 @@
 
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <% if safari.photos.file %>
-          <% safari.photos.each do |photo| %>
+        <% if safari.safari_images %>
+          <% safari.safari_images.each do |images_instance| %>
           <div class="swiper-slide">
-            <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
+            <%= cl_image_tag images_instance.photo, class: "card" %>
           </div>
           <% end %>
         <% else %>
