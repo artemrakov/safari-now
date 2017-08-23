@@ -2,7 +2,8 @@
   <div class="row">
     <div class="col-xs-12 col-sm-3 col-offeset-sm-1">
       <div class="profile-info">
-        <%= image_tag @user.facebook_picture_url, class: "avatar-dashboard" %>
+        <% avatar_url = @user.facebook_picture_url || "http://placehold.it/200x200" %>
+        <%= image_tag avatar_url, class: "avatar-dashboard" %>
         <div class="profile-links">
         <div class="edit-dashboard">
           <h2> <%= @user.first_name %> </h2>

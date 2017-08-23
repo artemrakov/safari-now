@@ -8,7 +8,7 @@
   <div class="navbar-wagon-right hidden-xs hidden-sm">
     <%= link_to "Add a Safari", new_safari_path, class: "navbar-wagon-item navbar-wagon-link" %>
     <!-- Search -->
-  <% if user_signed_in?  %>
+  <% unless current_page?(root_path) && !user_signed_in? %>
     <%= form_tag safaris_path, class: "navbar-form", method: :get do  %>
     <div class="input-group">
     <%= text_field_tag :search, nil, class: "form-control", placeholder: "Search for a Safari" %>
