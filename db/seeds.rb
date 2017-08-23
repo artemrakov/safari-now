@@ -41,6 +41,7 @@ counter = 1
   safari = Safari.new(
     title: Faker::University.name,
     address: safari_address, description: Faker::Lorem.sentence(24),
+
     capacity: (1..10).to_a.sample, price: (100..1000).to_a.sample, date: Faker::Date.forward(23))
   safari.user = User.first
   safari.save
