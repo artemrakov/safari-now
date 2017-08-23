@@ -1,1 +1,22 @@
-<%= user.avatar %>
+<div class="container">
+<div class="row">
+  <div class="col-xs-12 col-sm-4">
+    <%= @user.avatar %>
+  </div>
+  <div class="col-xs-12 col-sm-8">
+    <% @user_bookings.each do |booking| %>
+      <div class="dashboard-messages">
+        <div class="avatar-safari-dashboard">
+          <% booking.safari.user.avatar %>
+        </div>
+        <div class="safari-message">
+          <%= booking.safari.name %>
+        </div>
+        <div class="booking-info">
+          <%= booking.status %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>

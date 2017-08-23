@@ -5,6 +5,7 @@ class PagesController < ApplicationController
   def dashboard
     if user_signed_in?
       @user = current_user
+      @user_bookings = @user.bookings
     else
       redirect_to :safaris
     end
