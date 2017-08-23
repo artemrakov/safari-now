@@ -34,7 +34,7 @@ counter = 1
   photo_url = "https://source.unsplash.com/collection/141713/1600x900"
   safari = Safari.new(
     title: Faker::University.name,
-    location: Faker::Address.zip_code, description: Faker::Lorem.sentence(24),
+    address: Faker::Address.country, description: Faker::Lorem.sentence(24),
     capacity: (1..10).to_a.sample, price: (100..1000).to_a.sample, date: Faker::Date.forward(23))
   safari.user = User.first
   safari.save
