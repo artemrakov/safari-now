@@ -2,55 +2,60 @@
    <div class="cards-container">
      <div class="row">
       <% @safaris.each do |safari| %>
-      <%= link_to safari_path(safari) do %>
-          <div class="col-xs-12 col-sm-6 col-md-4">
-            <div class="card-info">
-              <div class="swiper-container">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide">
-                    <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
-                  </div>
-                  <div class="swiper-slide">
-                  <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
-                  </div>
-                  <div class="swiper-slide">
-                  <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
-                  </div>
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-                <!-- Add Arrows -->
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-              </div>
-              <div class="card-footer-description">
-                <div class="footer-box">
-                  <div class="card-footer-info">
-                    <p> From 202$ Safari Africa </p>
-                  </div>
-                  <div class="card-stars">
-                    <% 5.times do  %>
-                      <i class="fa fa-star" aria-hidden="true"></i>
+        <%= link_to safari_path(safari) do %>
+            <div class="col-xs-12 col-sm-6 col-md-4">
+
+              <div class="card-info">
+
+                <div class="swiper-container">
+                  <div class="swiper-wrapper">
+                    <% if safari.photos.file %>
+                      <% safari.photos.each do |photo| %>
+                      <div class="swiper-slide">
+                        <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
+                      </div>
+                      <% end %>
+                    <% else %>
+                      <div class="swiper-slide">
+                        <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
+                      </div>
                     <% end %>
-                    <p> 250 reviews</p>
+                  </div>
+                  <!-- Add Pagination -->
+                  <div class="swiper-pagination"></div>
+                  <!-- Add Arrows -->
+                  <div class="swiper-button-next"></div>
+                  <div class="swiper-button-prev"></div>
+                </div>
+
+                <div class="card-footer-description">
+                  <div class="footer-box">
+                    <div class="card-footer-info">
+                      <p> From 202$ Safari Africa </p>
+                    </div>
+                    <div class="card-stars">
+                      <% 5.times do  %>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      <% end %>
+                      <p> 250 reviews</p>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
           <% end %>
-      <% end %>
+        <% end %>
      </div>
    </div>
 
   <div id="map"></div>
+</div>
 
-  <%= content_for(:before_js) do %>
-    <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyCMtlyoljyulu4QGTB6SxcjUMxW-lCmv2I" %>
-    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
-    <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
-  <% end %>
- </div>
+<%= content_for(:before_js) do %>
+  <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyCMtlyoljyulu4QGTB6SxcjUMxW-lCmv2I" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
+  <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js" %>
+<% end %>
 
 
 <% content_for(:after_js) do %>
@@ -187,8 +192,6 @@
         ]
     }
 ];
-
-
 
       var handler = Gmaps.build('Google');
 
