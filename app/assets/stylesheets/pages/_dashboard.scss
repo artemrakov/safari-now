@@ -1,0 +1,86 @@
+.dashboard-messages {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(220, 224, 224, 0.4);
+  h4 {
+  font-size: 13px;
+  margin-bottom: 0px;
+  margin-top: 0;
+  }
+
+  p {
+  font-size: 13px;
+  font-weight: lighter;
+  opacity: 0.4;
+  margin-top: 5px;
+  }
+}
+.edit-dashboard {
+  text-align: center;
+  padding: 10px;
+
+  h2 {
+    margin-top: 0;
+    font-size: 32px;
+    font-family: "Raleway";
+  }
+
+  a {
+    font-size: 14px;
+  }
+}
+
+.category-dashboard-current {
+  background-color: #EDEFED;
+  border: 1px solid #DCE0E0;
+}
+
+.profile-info {
+  background-color: white;
+  border: 1px solid #DCE0E0;
+}
+
+.user-name {
+  width: 100px;
+  padding-left: 10px;
+  h4 {
+    margin-bottom: 21px !important;
+  }
+}
+
+.all-messages {
+  padding: 0 20px;
+  background-color: white;
+}
+.avatar-dashboard  {
+  height: auto;
+  width: 100%;
+}
+
+.avatar-safari-dashboard {
+  width: 150px;
+  text-align: center;
+}
+
+.h2-bookings {
+  text-align: center;
+}
+
+.booking-info {
+  width: 60px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.avatar-dashboard-booking {
+  margin-bottom: 10px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+
+.safari-message {
+  margin-left: 20px;
+  flex-grow: 1;
+}

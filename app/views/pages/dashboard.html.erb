@@ -1,0 +1,60 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-3 col-offeset-sm-1">
+      <div class="profile-info">
+        <%= cl_image_tag "rmrbusexvqtg7sll75qn.jpg", class: "avatar-dashboard" %>
+        <div class="profile-links">
+        <div class="edit-dashboard">
+          <h2> Artem </h2>
+          <%= link_to "Edit Profile", edit_user_path(current_user) %>
+        </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <div class="category-dashboard-current">
+        <h2 class="h2-bookings">Your bookings</h2>
+          <div class="all-messages">
+        <%# @user_bookings.each do |booking| %>
+            <div class="dashboard-messages">
+                <%= cl_image_tag "gftvny8f20oz3wdyyznu.png", class: "avatar-dashboard-booking" %>
+                <div class="user-name">
+                  <h4> Artem Rakov </h4>
+                </div>
+                <%# booking.safari.user.avatar %>
+                <%# booling.safari.user.first_name %>
+
+              <div class="safari-message">
+                <%# booking.safari.name %>
+                <h4> Safari Africa </h4>
+                <p> Very interesting, a lot of animals</p>
+              </div>
+              <div class="booking-info">
+                <%# booking.status %>
+                <p> Pending </p>
+              </div>
+            </div>
+            <div class="dashboard-messages">
+                <%= cl_image_tag "gftvny8f20oz3wdyyznu.png", class: "avatar-dashboard-booking" %>
+                <div class="user-name">
+                  <h4> Artem Rakov </h4>
+                </div>
+                <%# booking.safari.user.avatar %>
+                <%# booling.safari.user.first_name %>
+
+              <div class="safari-message">
+                <%# booking.safari.name %>
+                <h4> Safari Africa </h4>
+                <p> Very interesting, a lot of animals</p>
+              </div>
+              <div class="booking-info">
+                <%# booking.status %>
+                <p> Pending </p>
+              </div>
+            </div>
+          </div>
+        </div>
+    <%# end %>
+    </div>
+  </div>
+</div>
