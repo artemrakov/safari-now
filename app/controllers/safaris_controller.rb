@@ -2,10 +2,15 @@ class SafarisController < ApplicationController
   before_action :set_safari, only: [:show]
 
   def index
-    if params[:title].present?
-      @safaris = Safari.where(title: params[:title])
+    if params[:search].present?
+      @safaris = Safari.where(title: params[:search])
     else
-      @safaris = Safari.all
+      @safaris = Safari.where.not(latitude: nil, longitude: nil)
+    end
+    @hash = Gmaps4rails.build_markers(@safaris) do |safari, marker|
+      marker.lat safari.latitude
+      marker.lng safari.longitude
+      # marker.infowindow render_to_string(partial: "/safaris/map_box", locals: { safari: safari })
     end
   end
 
