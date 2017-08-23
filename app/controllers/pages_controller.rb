@@ -12,7 +12,16 @@ class PagesController < ApplicationController
   end
 
   def create_booking
-
+    @booking = Booking.new
+    @safari = Safari.find(params[:safari_id])
+    @user = User.find(params[:id])
+    @booking.safari = @safari
+    @booking.user = @user
+    if @booking.save
+      redirect_to dashboard_path
+    else
+      redirect_to new_user_registration_path
+    end
   end
 
 end

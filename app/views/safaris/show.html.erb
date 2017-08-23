@@ -31,7 +31,7 @@
 
 </div>
 
-<%= link_to "Book",  %>
+<%= link_to "Book", create_booking_path(@safari, current_user), method: :post %>
 
 <%= content_for(:before_js) do %>
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyCMtlyoljyulu4QGTB6SxcjUMxW-lCmv2I" %>
