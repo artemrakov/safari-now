@@ -84,3 +84,16 @@
   margin-left: 20px;
   flex-grow: 1;
 }
+
+
+.empty-bookings {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200px;
+  background-color: #EDEFED;
+  h2 {
+    color: #484848;
+    font-size: 24px;
+  }
+}

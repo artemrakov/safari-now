@@ -14,29 +14,43 @@
     <div class="col-xs-12 col-sm-8">
       <div class="category-dashboard-current">
         <h2 class="h2-bookings">Your bookings</h2>
+          <% unless @user_bookings == []  %>
         <div class="all-messages">
-          <% @user_bookings.each do |booking| %>
-            <div class="dashboard-messages">
-                <%= cl_image_tag booking.safari.user.avatar, class: "avatar-dashboard-booking" %>
-                <div class="user-name">
-                  <h4> <%= booking.safari.user.first_name %> <%= booking.safari.user.last_name %> </h4>
-                </div>
-                <%# booking.safari.user.avatar %>
-                <%# booking.safari.user.first_name %>
+            <% @user_bookings.each do |booking| %>
+              <div class="dashboard-messages">
+                  <%= cl_image_tag booking.safari.user.avatar, class: "avatar-dashboard-booking" %>
+                  <div class="user-name">
+                    <h4> <%= booking.safari.user.first_name %> <%= booking.safari.user.last_name %> </h4>
+                  </div>
+                  <%# booking.safari.user.avatar %>
+                  <%# booking.safari.user.first_name %>
 
-              <div class="safari-message">
-                <%# booking.safari.title %>
-                <h4> <%= booking.safari.title %> </h4>
-                <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
+                <div class="safari-message">
+                  <%# booking.safari.title %>
+                  <h4> <%= booking.safari.title %> </h4>
+                  <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
+                </div>
+                <div class="booking-info">
+                  <%# booking.status %>
+                  <p> <%= booking.status.capitalize %> </p>
+                </div>
               </div>
-              <div class="booking-info">
-                <%# booking.status %>
-                <p> <%= booking.status.capitalize %> </p>
-              </div>
+            <% end %>
+           <% else %>
+            <div class="empty-bookings">
+              <h2> No bookings yet. </h2>
             </div>
           <% end %>
         </div>
       </div>
     </div>
   </div>
-</div>
+
+ <!--  <div class="row">
+  <h2 class="h2-bookings"> Your safaris </h2>
+    <%# @user.created_safaris.each do |safari| %>
+
+    <%# end %>
+  </div>
+</div> -->
+
