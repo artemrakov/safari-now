@@ -1,5 +1,5 @@
 class Safari < ApplicationRecord
-  mount_uploader :photos, PhotoUploader
+  mount_uploaders :photos, PhotoUploader
   has_many :bookings
   belongs_to :user
 end
