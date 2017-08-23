@@ -4,7 +4,7 @@
 
 #map {
   flex: 1 0 auto;
-  height: 100vh;
+  height: calc(100vh - 70px);
   position: sticky !important; /* !important to override Gmaps inline CSS */
   top: 70px !important;
 }
