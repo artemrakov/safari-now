@@ -13,8 +13,8 @@
     </div>
     <div class="col-xs-12 col-sm-8">
       <div class="category-dashboard-current">
-        <h2 class="h2-bookings">Your bookings</h2>
           <% unless @user_bookings == []  %>
+        <h2 class="h2-bookings">Your bookings</h2>
         <div class="all-messages">
             <% @user_bookings.each do |booking| %>
               <div class="dashboard-messages">
@@ -38,7 +38,10 @@
             <% end %>
            <% else %>
             <div class="empty-bookings">
+              <div class="button-div">
               <h2> No bookings yet. </h2>
+                <%= link_to "Explore new safaris", safaris_path, class: "button-dashboard" %>
+              </div>
             </div>
           <% end %>
         </div>
