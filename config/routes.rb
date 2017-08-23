@@ -3,6 +3,7 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   get 'dashboard', to: 'pages#dashboard'
+  post 'create_booking', to: 'pages#create_booking'
 
   resources :safaris
   resources :users, only: [:show, :edit, :update, :destroy]

@@ -11,4 +11,8 @@ class PagesController < ApplicationController
     end
   end
 
+  def create_booking
+
+  end
+
 end
