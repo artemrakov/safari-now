@@ -29,12 +29,19 @@ counter = 1
 end
 
 # Seeding Safaris
+
+address_array = ["Four Seasons Rd, 2002, Tanzania", "North Serengeti National Park, Seronera, Tanzania", "Taita Hills Wildlife Sanctuary, Tsavo National Park West, Kenya",
+  "Tsavo National Park West 34117, Kenya", "Nairobi 80100, Kenya", "Arusha, Tanzania", "2 Serengeti Road, Arusha, Tanzania", "Cape Town Central 7806, South Africa",
+  "Kruger National Park 1709, South Africa", "54 Mann Street, George 6529, South Africa", "184 Elsa Street | Strijdompark, Johannesburg 2198, South Africa", "Mombasa 80100, Kenya"]
+
 counter = 1
 10.times do
+  safari_address = address_array.sample
   photo_url = "https://source.unsplash.com/collection/141713/1600x900"
   safari = Safari.new(
     title: Faker::University.name,
-    address: Faker::Address.zip_code, description: Faker::Lorem.sentence(24),
+    address: safari_address, description: Faker::Lorem.sentence(24),
+
     capacity: (1..10).to_a.sample, price: (100..1000).to_a.sample, date: Faker::Date.forward(23))
   safari.user = User.first
   safari.save
