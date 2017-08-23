@@ -22,8 +22,8 @@ user_pic_array = [ "http://xdesktopwallpapers.com/wp-content/uploads/2012/07/Sco
 counter = 1
 10.times do
   photo_url = user_pic_array.sample
-  name = Faker::GameOfThrones.character
-  user = User.create(name: name, email: Faker::Internet.email(name.split(" ").first), description: Faker::Lorem.paragraph,  password: "password", remote_avatar_url: photo_url)
+  full_name = Faker::GameOfThrones.character.split(' ')
+  user = User.create(first_name: full_name[0], last_name: full_name[1], email: Faker::Internet.email, description: Faker::Lorem.paragraph,  password: "password", remote_avatar_url: photo_url)
   puts "Created user number #{counter}"
   counter += 1
 end

@@ -5,9 +5,9 @@
 <div class="home">
   <div>
     <h1 class="text-center">Safari Now</h1>
-    <%= form_for safaris_path, :method => 'get' do %>
+    <%= form_tag safaris_path, method: 'get', enforce_utf8: false do %>
       <%= text_field_tag :search, params[:search], placeholder:"Where to?" %>
-      <%= submit_tag "Search" %>
+      <%= submit_tag "Search", name: nil %>
     <% end %>
   </div>
 </div>
