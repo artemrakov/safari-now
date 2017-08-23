@@ -1,0 +1,51 @@
+<div class="col-xs-12 col-sm-6 col-md-4">
+  <div class="card-info">
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% if safari.photos.file %>
+          <% safari.photos.each do |photo| %>
+          <div class="swiper-slide">
+            <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
+          </div>
+          <% end %>
+        <% else %>
+          <div class="swiper-slide">
+            <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
+          </div>
+        <% end %>
+      </div>
+      <!-- Add Pagination -->
+      <div class="swiper-pagination"></div>
+      <!-- Add Arrows -->
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+    </div>
+
+    <div class="card-footer-description">
+      <div class="footer-box">
+
+        <div class="card-footer-info">
+          <p> <%= safari.title %> </p>
+        </div>
+
+        <div class="stars-and-count">
+
+          <div class="card-stars">
+            <div class="symbols">
+              <% 5.times do  %>
+                <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="card-count">
+            <p> 250 reviews</p>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
