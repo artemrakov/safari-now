@@ -4,10 +4,11 @@
 
 <div class="home">
   <div>
-    <h1 class="text-center">Safari Now</h1>
-    <%= form_tag safaris_path, method: 'get', enforce_utf8: false do %>
+    <%= form_tag safaris_path, :method => 'get', enforce_utf8: false do %>
       <%= text_field_tag :search, params[:search], placeholder:"Where to?" %>
-      <%= submit_tag "Search", name: nil %>
+      <%= button_tag(type: 'submit')  do %>
+        <i class="fa fa-search" aria-hidden="true"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
