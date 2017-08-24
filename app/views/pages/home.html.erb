@@ -5,7 +5,7 @@
 <div class="home">
   <div>
     <%= form_tag safaris_path, :method => 'get', enforce_utf8: false do %>
-      <%= text_field_tag :search, params[:search], placeholder:"Where's your next adventure?" %>
+      <%= text_field_tag :search, params[:search], placeholder:"Where's your next adventure?", id: "home-search" %>
       <%= button_tag(type: 'submit')  do %>
         <i class="fa fa-search" aria-hidden="true"></i>
       <% end %>
