@@ -19,7 +19,7 @@
         <div class="all-messages">
             <% @user_bookings.each do |booking| %>
               <div class="dashboard-messages">
-                  <%= cl_image_tag booking.safari.user.avatar, class: "avatar-dashboard-booking" %>
+                  <%= cl_image_tag booking.safari.user.avatar.url(:bright_face), class: "avatar-dashboard-booking" %>
                   <div class="user-name">
                     <h4> <%= booking.safari.user.first_name %> <%= booking.safari.user.last_name %> </h4>
                   </div>
