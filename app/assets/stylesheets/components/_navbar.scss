@@ -10,11 +10,24 @@
   align-items: center;
   justify-content: space-between;
   margin: 0;
-  position: sticky;
+  position: fixed;
   width: 100%;
   z-index: 10000000000;
   top: 0;
+  left: 0;
+  transition: top 0.6s;
+  box-sizing: border-box;
 }
+
+/* Hiding the navbar*/
+.navbar-wagon.off-canvas { top: -89px; }
+
+.navbar-wagon.fixed {
+  top: 0;
+  z-index: 9999;
+}
+
+
 
 /* Logo */
 .navbar-wagon-brand {
