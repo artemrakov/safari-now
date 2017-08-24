@@ -35,11 +35,13 @@
 .category-dashboard-current {
   background-color: #EDEFED;
   border: 1px solid #DCE0E0;
+  margin-bottom: 20px;
 }
 
 .profile-info {
   background-color: white;
   border: 1px solid #DCE0E0;
+  margin-bottom: 20px;
 }
 
 .user-name {
@@ -120,4 +122,23 @@
     color: #fff;
     text-decoration: none;
   }
+}
+
+.booking-info-status {
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  i {
+    font-size: 30px;
+    margin: 0 10px;
+  }
+}
+
+.green-tick {
+  color: green;
+}
+
+.red-tick {
+  color:red;
 }
