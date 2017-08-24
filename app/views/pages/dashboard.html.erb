@@ -2,10 +2,11 @@
   <div class="row">
     <div class="col-xs-12 col-sm-3 col-offeset-sm-1">
       <div class="profile-info">
-        <%= cl_image_tag "rmrbusexvqtg7sll75qn.jpg", class: "avatar-dashboard" %>
+        <% avatar_url = @user.facebook_picture_url || "http://placehold.it/200x200" %>
+        <%= image_tag avatar_url, class: "avatar-dashboard" %>
         <div class="profile-links">
         <div class="edit-dashboard">
-          <h2> Artem </h2>
+          <h2> <%= @user.first_name %> </h2>
           <%= link_to "Edit Profile", edit_user_path(current_user) %>
         </div>
         </div>
@@ -13,48 +14,47 @@
     </div>
     <div class="col-xs-12 col-sm-8">
       <div class="category-dashboard-current">
+          <% unless @user_bookings == []  %>
         <h2 class="h2-bookings">Your bookings</h2>
-          <div class="all-messages">
-        <%# @user_bookings.each do |booking| %>
-            <div class="dashboard-messages">
-                <%= cl_image_tag "gftvny8f20oz3wdyyznu.png", class: "avatar-dashboard-booking" %>
-                <div class="user-name">
-                  <h4> Artem Rakov </h4>
-                </div>
-                <%# booking.safari.user.avatar %>
-                <%# booling.safari.user.first_name %>
+        <div class="all-messages">
+            <% @user_bookings.each do |booking| %>
+              <div class="dashboard-messages">
+                  <%= cl_image_tag booking.safari.user.avatar, class: "avatar-dashboard-booking" %>
+                  <div class="user-name">
+                    <h4> <%= booking.safari.user.first_name %> <%= booking.safari.user.last_name %> </h4>
+                  </div>
+                  <%# booking.safari.user.avatar %>
+                  <%# booking.safari.user.first_name %>
 
-              <div class="safari-message">
-                <%# booking.safari.name %>
-                <h4> Safari Africa </h4>
-                <p> Very interesting, a lot of animals</p>
+                <div class="safari-message">
+                  <%# booking.safari.title %>
+                  <h4> <%= booking.safari.title %> </h4>
+                  <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
+                </div>
+                <div class="booking-info">
+                  <%# booking.status %>
+                  <p> <%= booking.status.capitalize %> </p>
+                </div>
               </div>
-              <div class="booking-info">
-                <%# booking.status %>
-                <p> Pending </p>
+            <% end %>
+           <% else %>
+            <div class="empty-bookings">
+              <div class="button-div">
+              <h2> No bookings yet. </h2>
+                <%= link_to "Explore new safaris", safaris_path, class: "button-dashboard" %>
               </div>
             </div>
-            <div class="dashboard-messages">
-                <%= cl_image_tag "gftvny8f20oz3wdyyznu.png", class: "avatar-dashboard-booking" %>
-                <div class="user-name">
-                  <h4> Artem Rakov </h4>
-                </div>
-                <%# booking.safari.user.avatar %>
-                <%# booling.safari.user.first_name %>
-
-              <div class="safari-message">
-                <%# booking.safari.name %>
-                <h4> Safari Africa </h4>
-                <p> Very interesting, a lot of animals</p>
-              </div>
-              <div class="booking-info">
-                <%# booking.status %>
-                <p> Pending </p>
-              </div>
-            </div>
-          </div>
+          <% end %>
         </div>
-    <%# end %>
+      </div>
     </div>
   </div>
-</div>
+
+ <!--  <div class="row">
+  <h2 class="h2-bookings"> Your safaris </h2>
+    <%# @user.created_safaris.each do |safari| %>
+
+    <%# end %>
+  </div>
+</div> -->
+

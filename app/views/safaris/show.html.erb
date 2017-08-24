@@ -27,6 +27,14 @@
 
 <div id="map" style="width: 100%; height: 400px;"></div>
 
+<div class="reviews">
+
+</div>
+<% if current_user %>
+  <%= link_to "Book", create_booking_path(@safari, current_user), method: :post %>
+<% else %>
+  <%= link_to "Book", new_user_session_path %>
+<% end %>
 <%= content_for(:before_js) do %>
   <%= javascript_include_tag "https://maps.google.com/maps/api/js?key=AIzaSyCMtlyoljyulu4QGTB6SxcjUMxW-lCmv2I" %>
   <%= javascript_include_tag "https://cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/markerclusterer/src/markerclusterer_compiled.js" %>
@@ -52,9 +60,6 @@
 <% end %>
 
 
-<div class="reviews">
-
-</div>
 
 
 

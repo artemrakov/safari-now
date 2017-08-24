@@ -65,6 +65,8 @@
 
 .h2-bookings {
   text-align: center;
+  margin-bottom: 20px;
+  font-size: 36px
 }
 
 .booking-info {
@@ -83,4 +85,37 @@
 .safari-message {
   margin-left: 20px;
   flex-grow: 1;
+}
+
+
+.empty-bookings {
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 300px;
+  background-color: #EDEFED;
+  h2 {
+    margin-bottom: 40px;
+    color: #484848;
+    font-size: 24px;
+  }
+}
+
+.button-dashboard {
+  padding: 12px 27px;
+  font-size: 16px;
+  border-color: #ff5a5f;
+  background-color: #ff5a5f;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  border: 1px solid;
+  font-weight: normal;
+  font-family: "Montserrat";
+  &:hover {
+    background-color: #ff7e82;
+    color: #fff;
+    text-decoration: none;
+  }
 }
