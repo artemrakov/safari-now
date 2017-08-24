@@ -1,8 +1,8 @@
 .card {
   width: 100%;
   // text-shadow: 0 1px 3px rgba(0,0,0,0.6);
-  // background-size: cover !important;
-  // background-position: center;
+  background-size: cover !important;
+  background-position: center;
   // color: white;
   // position: relative;
   z-index: -1;
@@ -13,6 +13,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+  position: relative;
 }
 
 .card-info {
@@ -36,7 +37,13 @@
   font-family: "Montserrat";
   font-weight: normal;
   font-size: 16px;
-  margin-top: 3px;
+  position: absolute;
+  top: 10px;
+}
+
+.stars-and-count {
+  position: absolute;
+  bottom: 0px;
 }
 
 .card-image {
@@ -66,17 +73,17 @@
   font-size: 18px;
   background: #fff;
   /* Center slide text vertically */
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+  // display: -webkit-box;
+  // display: -ms-flexbox;
+  // display: -webkit-flex;
   display: flex;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
+  // -webkit-box-pack: center;
+  // -ms-flex-pack: center;
+  // -webkit-justify-content: center;
   justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  -webkit-align-items: center;
+  // -webkit-box-align: center;
+  // -ms-flex-align: center;
+  // -webkit-align-items: center;
   align-items: center;
   z-index: -1;
 }
