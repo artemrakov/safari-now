@@ -23,10 +23,6 @@ button{
 #home-search {
   color: #757575;
   // border-bottom: 2px solid #EEEEEE;
-  &:focus {
-    outline: none;
-  }
-  font-size: 40px;
 }
 .search-and-button {
   margin-bottom: 220px;
@@ -34,6 +30,7 @@ button{
   flex-direction: column;
   justify-content: flex-start;
   font-size: 30px;
+  position: relative;;
 }
 
 main-title {
@@ -43,10 +40,35 @@ main-title {
 
 }
 
-#typed {
-  // font-size: 40px;
-  border-bottom: 2px dashed grey;
+#thing {
+  position: absolute;
+  left: 0;
 }
+
+#typed {
+  font-size: 30px;
+  // border-bottom: 1px solid grey;
+  &:focus {
+    outline: none;
+  }
+}
+
+.typed-cursor{
+    opacity: 1;
+    animation: blink 0.5s infinite;
+    @keyframes blink{
+    0% { opacity:1; }
+    50% { opacity:0; }
+    100% { opacity:1; }
+    }
+    margin-left: -12px;
+}
+
+#main-submit {
+  position: absolute;
+  right: 0px;
+}
+
 
 @media (max-width: 625px) {
   button {

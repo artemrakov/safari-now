@@ -6,33 +6,38 @@
   <div class="search-and-button">
   <h2 class="main-title">Explore safaris in</h2>
     <%= form_tag safaris_path, :method => 'get', enforce_utf8: false do %>
+    <div>
       <%= text_field_tag :search, params[:search], id: "typed" %>
-
-      <%= button_tag(type: 'submit')  do %>
+      <span class="typed-cursor">|</span>
+      <%= button_tag(type: 'submit', id: "main-submit") do %>
         <i class="fa fa-search" aria-hidden="true"></i>
       <% end %>
+    </div>
     <% end %>
   </div>
 </div>
 
 <% content_for(:after_js) do %>
 <script type="text/javascript">
-  const input = document.querySelectorAll('input');
-    for(i=0; i<input.length; i++){
-      if (input[i].hasAttribute('placeholder')) {
-      input[i].setAttribute('size',input[i].getAttribute('placeholder').length);
-    }
-  }
+  const input = document.getElementById('typed');
+  window.setInterval( function() {
+      input.setAttribute('size',input.getAttribute('placeholder').length);
+    }, 200);
 </script>
 
-<%# content_for(:after_js) do %>
  <script>
    $(function(){
         $("#typed").typed({
-          strings: ['South Africa', 'Kenya', 'Ghana', 'Nigeria'],
+          strings: ['South Africa', 'Kenya', 'Ghana', 'Nigeria', 'Numibia'],
           typeSpeed: 100,
+          smartBackspace: true,
+          backSpeed: 100,
+          backDelay: 2000,
           loop: true,
-          attr: 'placeholder'
+          attr: 'placeholder',
+          showCursor: true,
+          cursorChar: '|',
+          autoInsertCss: true
         });
       });
  </script>
