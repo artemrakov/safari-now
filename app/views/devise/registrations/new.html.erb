@@ -1,5 +1,9 @@
 <h2>Sign up</h2>
 
+<%= render 'devise/shared/social-login' %>
+
+<div class="text-center"><p>or sign up with your email</p></div>
+
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= f.error_notification %>
 
