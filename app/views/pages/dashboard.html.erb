@@ -12,7 +12,7 @@
         </div>
       </div>
     </div>
-    <div class="col-xs-12">
+    <div class="col-xs-12 col-sm-8">
       <div class="category-dashboard-current">
           <% unless @user_bookings == []  %>
         <h2 class="h2-bookings">Your bookings</h2>
@@ -51,40 +51,38 @@
   </div>
 
   <div class="row">
-    div.col-xs-12.col-sm-8.col-offeset-sm-2
+    <div class="col-xs-12">
     <div class="category-dashboard-current">
-        <h2 class="h2-bookings">Your bookings</h2>
+        <h2 class="h2-bookings">Your safaris</h2>
         <div class="all-messages">
-             <% @user.created_safaris.each do |safari| %>
+             <% current_user.created_safaris.each do |safari| %>
                 <% safari.bookings.each do |booking| %>
               <div class="dashboard-messages">
-                  <% unless booking.user.avatar.nil? %>
-                    <%= cl_image_tag safari.bookings.user.avatar, class: "avatar-dashboard-booking" %>
-                  <% elsif booking.user.facebook_picture_url.nil? %>
-                    <%= safari.bookings.user.facebook_picture_url %>
+                  <% if booking.user.avatar? %>
+                    <%= cl_image_tag booking.user.avatar, class: "avatar-dashboard-booking" %>
+                  <% elsif !booking.user.facebook_picture_url.nil? %>
+                    <%= image_tag booking.user.facebook_picture_url, class: "avatar-dashboard-booking" %>
                   <% else %>
-                    <img src="http://placehold.it/50x50">
+                    <%= image_tag "http://placehold.it/50x50", class: "avatar-dashboard-booking" %>
                   <% end %>
                   <div class="user-name">
-                    <h4> <%= booking.safari.user.first_name %> <%= booking.safari.user.last_name %> </h4>
+                    <h4> <%= booking.user.first_name %> <%= booking.user.last_name %> </h4>
                   </div>
-                  <%# booking.safari.user.avatar %>
-                  <%# booking.safari.user.first_name %>
 
                 <div class="safari-message">
-                  <%# booking.safari.title %>
                   <h4> <%= booking.safari.title %> </h4>
                   <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
                 </div>
-                <div class="booking-info">
-                  <%# booking.status %>
-                  <p> <%= booking.status.capitalize %> </p>
+                <div class="booking-info-status">
+                  <p> <i class="fa fa-check" aria-hidden="true"></i> </p>
+                  <p> <i class="fa fa-times" aria-hidden="true"></i> </p>
                 </div>
               </div>
               <% end %>
             <% end %>
         </div>
       </div>
+    </div>
   </div>
 </div>
 
