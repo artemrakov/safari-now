@@ -25,10 +25,20 @@ class PagesController < ApplicationController
   end
 
   def cancel_booking
-
+    @safari = Safari.find(params[:safari_id])
+    @user = User.find(params[:id])
+    @booking = Booking.where(safari_id: @safari.id, user_id: @user.id).first
+    @booking.status = "decline"
+    @booking.save
+    redirect_to :dashboard
   end
 
   def accept_booking
-
+    @safari = Safari.find(params[:safari_id])
+    @user = User.find(params[:id])
+    @booking = Booking.where(safari_id: @safari.id, user_id: @user.id).first
+    @booking.status = "accept"
+    @booking.save
+    redirect_to :dashboard
   end
 end

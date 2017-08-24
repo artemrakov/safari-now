@@ -74,10 +74,10 @@
                   <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
                 </div>
                 <div class="booking-info-status">
-                  <%= link_to(booking.safari, booking.user.id) do  %>
+                  <%= link_to accept_booking_path(booking.safari, booking.user), method: :patch do  %>
                     <p> <i class="fa fa-check green-tick" aria-hidden="true"></i> </p>
                   <% end %>
-                  <%= link_to() do %>
+                  <%= link_to cancel_booking_path(booking.safari, booking.user), method: :patch do %>
                   <p> <i class="fa fa-times red-tick" aria-hidden="true"></i> </p>
                   <% end %>
                 </div>
