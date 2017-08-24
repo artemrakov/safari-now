@@ -8,12 +8,16 @@
   z-index: -1;
   height: 175px;
 }
+.card a {
+  color: #6FD08C;
+}
 
 .footer-box {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   position: relative;
+  color: #6FD08C;
 }
 
 .card-info {
