@@ -6,12 +6,12 @@
         <% unless safari.safari_images == [] %>
           <% safari.safari_images.each do |images_instance| %>
           <div class="swiper-slide">
-            <%= cl_image_tag images_instance.photo, class: "card" %>
+            <div class="card" style="background-image: url('<%= cl_image_path images_instance.photo %>')"></div>
           </div>
           <% end %>
         <% else %>
           <div class="swiper-slide">
-            <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "card" %>
+          <div class="card" style="background-image: url('<%= cl_image_path "lkgaqzb9hc9garraymlm.jpg" %>')"></div>
           </div>
         <% end %>
       </div>
