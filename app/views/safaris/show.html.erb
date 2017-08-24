@@ -1,38 +1,34 @@
-<div class="show-banner-box">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  </ol>
 
-<div class="swiper-container">
-  <div class="swiper-wrapper">
-    <% if @safari.safari_images %>
-      <% @safari.safari_images.each do |images_instance| %>
-        <div class="swiper-slide">
-          <%= cl_image_tag images_instance.photo, class: "show-banner", crop: :fill %>
-        </div>
-      <% end %>
-    <% else %>
-      <div class="swiper-slide">
-        <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "show-banner" %>
-      </div>
-    <% end %>
-
-    <div class="show-banner-content">
-          <h2><%= @safari.title %></h2>
-          <%= cl_image_tag @user.avatar_url, class: "safari-owner" %>
-
-          <a class="safari-owner-link" href="#" ></a>
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+      <img src="..." alt="...">
     </div>
-
+    <div class="item">
+      <img src="..." alt="...">
+    </div>
+    ...
   </div>
-  <!-- Add Pagination -->
-  <div class="swiper-pagination"></div>
-  <!-- Add Arrows -->
-  <div class="swiper-button-next"></div>
-  <div class="swiper-button-prev"></div>
 
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
 </div>
-</div>
+
 
   <!-- <div class="show-banner-content">
-    <h2><%= @safari.title %></h2>
+    <h2><%# @safari.title %></h2>
     <%# cl_image_tag @user.avatar_url, class: "safari-owner" %>
 
   <a class="safari-owner-link" href="#" ></a>
