@@ -14,12 +14,12 @@
       </div>
     <% end %>
 
-    <div class="show-banner-content">
+    <!-- <div class="show-banner-content">
           <h2><%= @safari.title %></h2>
-          <%= cl_image_tag @user.avatar_url, class: "safari-owner" %>
+          <%# cl_image_tag @user.avatar_url, class: "safari-owner" %>
 
           <a class="safari-owner-link" href="#" ></a>
-    </div>
+    </div> -->
 
   </div>
   <!-- Add Pagination -->
@@ -31,21 +31,21 @@
 </div>
 </div>
 
-  <!-- <div class="show-banner-content">
+  <div class="show-banner-content">
     <h2><%= @safari.title %></h2>
-    <%# cl_image_tag @user.avatar_url, class: "safari-owner" %>
+     <div class="summary">
+      <p>£<%= @safari.price %></p>
+     </div>
+    <%= cl_image_tag @user.avatar_url, class: "safari-owner" %>
+    <a class="safari-owner-link" href="#" ></a>
+    <div id="book-button">
+      <a href="#">Book now</a>
+    </div>
+  </div>
 
-  <a class="safari-owner-link" href="#" ></a>
-  </div> -->
 <div class="container">
 
 <div class="info">
-  <div class="summary">
-    <p>£<%= @safari.price %></p>
-  </div>
-  <div class="book-button">
-    <a href="#">Book now</a>
-  </div>
 
   <h3><%= @safari.address %> - <%= @safari.date %></h3>
   <p><%= @safari.description %></p>
@@ -73,8 +73,140 @@
 
   <script>
     $(document).ready(function() {
+      var styles = [
+    {
+        "featureType": "administrative",
+        "elementType": "labels.text.fill",
+        "stylers": [
+            {
+                "color": "#444444"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f2f2f2"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#b4f06d"
+            },
+            {
+                "saturation": "-40"
+            },
+            {
+                "lightness": "58"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.landcover",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "landscape.natural.terrain",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "poi.park",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "all",
+        "stylers": [
+            {
+                "saturation": -100
+            },
+            {
+                "lightness": 45
+            },
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.highway",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "road.arterial",
+        "elementType": "labels.icon",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit",
+        "elementType": "all",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#f4f2cd"
+            },
+            {
+                "visibility": "on"
+            }
+        ]
+    }
+]
       var handler = Gmaps.build('Google');
-      handler.buildMap({ internal: { id: 'map' } }, function() {
+      handler.buildMap({
+        provider: {
+        styles: styles },
+
+        internal: { id: 'map' } }, function() {
         markers = handler.addMarkers([<%= raw @safari_coordinates.to_json %>]);
         handler.bounds.extendWith(markers);
         handler.fitMapToBounds();
