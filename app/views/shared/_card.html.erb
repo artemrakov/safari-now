@@ -15,7 +15,7 @@
           </div>
         <% end %>
       </div>
-      <% if safari.safari_images != [] %>
+      <% if (safari.safari_images != []) || (safari.safari_images.count == 1) %>
       <!-- Add Pagination -->
       <div class="swiper-pagination"></div>
       <!-- Add Arrows -->
