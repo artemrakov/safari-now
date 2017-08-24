@@ -1,31 +1,33 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+     <% @safari.safari_images.each_with_index do |photo, n| %>
+       <li data-target='#MyCarousel' data-slide-to="#{n}" class="#{'active' if n == 0}"></li>
+     <% end %>
   </ol>
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
-      <img src="..." alt="...">
+  <div class="carousel-inner" role="listbox">
+    <div class="item active show-card">
+      <div class="safari-image" style="background-image: url('<%= cl_image_path @safari.safari_images.first.photo, height: 500, width: 2000, crop: :fill %>'); height: 500px; width: 100vw; background-position: center; background-size: cover"></div>
     </div>
-    <div class="item">
-      <img src="..." alt="...">
-    </div>
-    ...
+    <% @safari.safari_images.drop(1).each do |photo| %>
+      <div class="item show-card">
+        <div class="safari-image" style="background-image: url('<%= cl_image_path photo.photo, height: 500, width: 2000 %>'); height: 500px; width: 100vw; background-position: center; background-size: cover"></div>
+      </div>
+    <% end %>
   </div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
+  <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
+  <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
   </a>
 </div>
 
+<!-- Left and right controls -->
 
   <!-- <div class="show-banner-content">
     <h2><%# @safari.title %></h2>
@@ -83,17 +85,6 @@
     });
   </script>
 
-    <%= javascript_tag do %>
-    var swiper = new Swiper('.swiper-container', {
-        pagination: '.swiper-pagination',
-        slidesPerView: 1,
-        paginationClickable: true,
-        spaceBetween: 30,
-        keyboardControl: true,
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-    });
-  <% end %>
 
 <% end %>
 
