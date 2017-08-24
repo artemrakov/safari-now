@@ -20,8 +20,7 @@
 
 
 <% content_for(:after_js) do %>
-<!-- Initialize Swiper -->
-  <%= javascript_tag do %>
+<%= javascript_tag do %>
     var swiper = new Swiper('.swiper-container', {
         pagination: '.swiper-pagination',
         slidesPerView: 1,
@@ -32,7 +31,6 @@
         prevButton: '.swiper-button-prev',
     });
   <% end %>
-
 <!-- Init map -->
   <%= javascript_tag do %>
     $(document).ready(function() {
