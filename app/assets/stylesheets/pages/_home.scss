@@ -30,11 +30,22 @@ button{
 }
 .search-and-button {
   margin-bottom: 220px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 30px;
 }
 
 main-title {
-  margin-bottom: 10px;
-  font-size: 30px;
+  margin-bottom: 14px;
+  // font-size: 26px;
+  text-align: center;
+
+}
+
+#typed {
+  // font-size: 40px;
+  border-bottom: 2px dashed grey;
 }
 
 @media (max-width: 625px) {

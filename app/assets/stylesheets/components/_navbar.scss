@@ -31,14 +31,16 @@
 /* Logo */
 .navbar-wagon-brand {
   display: flex;
-  color: #FFDD83;
+  justify-content: center;
+  color: #6FD08C;
   img {
     height: 50px;
     margin-right: 8px;
+    margin-top: 5px;
   }
   p {
 
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Chewy', cursive;
     font-size: 1.7em;
     text-decoration: none;
     margin-top: 8px;
