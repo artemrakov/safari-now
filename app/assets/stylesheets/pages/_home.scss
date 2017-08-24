@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 }
 
 input, button {
@@ -32,6 +33,10 @@ input {
   margin-bottom: 220px;
 }
 
+main-title {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
 
 @media (max-width: 625px) {
   button {
