@@ -37,8 +37,11 @@
     margin-right: 8px;
   }
   p {
-    font-family: 'Concert One', cursive;
+    font-family: 'Raleway', cursive;
     font-size: 1.7em;
+  }
+  &:hover {
+    text-decoration: none;
   }
 }
 
