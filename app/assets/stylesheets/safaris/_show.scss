@@ -1,3 +1,4 @@
+
 .show-banner-box {
   color: white;
   text-align: center;
@@ -13,9 +14,10 @@
 .show-banner {
   width: 100%;
 }
-.show-banner-box h2 {
+.show-banner-content h2 {
   font-size: 50px;
   font-weight: bold;
+  margin: 20px;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
 }
 .safari-owner {
@@ -24,5 +26,48 @@
   bottom: 10px;
   width: 50px;
   border-radius: 50%;
+}
+.container {
+  display: flex;
+  position: relative;
+}
+
+#book-button {
+  position: absolute;
+  top: 15px;
+  right: 70px;
+}
+
+#book-button a {
+  color: white !important;
+  background-color: #6FD08C;
+  opacity: 0.9;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 0;
+  &:hover {
+    color: #6FD08C;
+    opacity: 1;
+  }
+}
+
+.show-banner-content {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+}
+
+.safari-owner {
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  top: 6px;
+  right: 10px;
+  margin: 0;
+}
+.summary {
+  flex: auto;
 }
 
