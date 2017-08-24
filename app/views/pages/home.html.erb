@@ -3,7 +3,7 @@
 <% end %>
 
 <div class="home">
-  <div>
+  <div class="search-and-button">
     <%= form_tag safaris_path, :method => 'get', enforce_utf8: false do %>
       <%= text_field_tag :search, params[:search], placeholder:"Where's your next adventure?" %>
       <%= button_tag(type: 'submit')  do %>

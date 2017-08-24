@@ -21,21 +21,25 @@ button{
 }
 input {
   color: #757575;
-  border-bottom: 2px solid #EEEEEE;
+  // border-bottom: 2px solid #EEEEEE;
   &:focus {
     outline: none;
   }
   font-size: 30px;
   // width: 450px;
 }
+.search-and-button {
+  margin-bottom: 220px;
+}
 
-@media (max-width: 425px) {
+
+@media (max-width: 625px) {
   button {
-    font-size: 20px;
+    font-size: 23px;
   }
 
   input {
-    font-size: 16px;
+    font-size: 17px;
     width: 250px;
   }
 }

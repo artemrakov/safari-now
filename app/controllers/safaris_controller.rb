@@ -3,10 +3,11 @@ class SafarisController < ApplicationController
 
   def index
     if params[:search].present?
-      @safaris = Safari.where(title: params[:search])
-      if @safaris == []
-        @safaris = Safari.where.not(latitude: nil, longitude: nil)
-      end
+      # @safaris = Safari.where('title LIKE ?', params[:search])
+      @safaris = Safari.where("lower(title) LIKE ? OR lower(address) LIKE ?", "%#{params[:search].downcase}%", "%#{params[:search].downcase}%")
+      # if @safaris == []
+      #   @safaris = Safari.where.not(latitude: nil, longitude: nil)
+      # end
     else
       @safaris = Safari.where.not(latitude: nil, longitude: nil)
     end
