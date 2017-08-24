@@ -74,8 +74,12 @@
                   <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
                 </div>
                 <div class="booking-info-status">
-                  <p> <i class="fa fa-check green-tick" aria-hidden="true"></i> </p>
+                  <%= link_to(booking.safari, booking.user.id) do  %>
+                    <p> <i class="fa fa-check green-tick" aria-hidden="true"></i> </p>
+                  <% end %>
+                  <%= link_to() do %>
                   <p> <i class="fa fa-times red-tick" aria-hidden="true"></i> </p>
+                  <% end %>
                 </div>
               </div>
               <% end %>

@@ -23,4 +23,12 @@ class PagesController < ApplicationController
       redirect_to new_user_registration_path
     end
   end
+
+  def cancel_booking
+
+  end
+
+  def accept_booking
+
+  end
 end
