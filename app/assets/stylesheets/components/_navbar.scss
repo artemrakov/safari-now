@@ -37,8 +37,13 @@
     margin-right: 8px;
   }
   p {
-    font-family: 'Concert One', cursive;
+    font-family: 'Slabo 27px', serif;
     font-size: 1.7em;
+    margin-bottom:  0;
+    padding-top: 3px;
+  }
+  &:hover {
+    text-decoration: none;
   }
 }
 
