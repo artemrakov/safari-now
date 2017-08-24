@@ -8,6 +8,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-direction: column;
 }
 
 input, button {
@@ -19,19 +20,22 @@ button{
   font-size: 32px;
   color: #757575;
 }
-input {
+#home-search {
   color: #757575;
   // border-bottom: 2px solid #EEEEEE;
   &:focus {
     outline: none;
   }
-  font-size: 30px;
-  // width: 450px;
+  font-size: 40px;
 }
 .search-and-button {
   margin-bottom: 220px;
 }
 
+main-title {
+  margin-bottom: 10px;
+  font-size: 30px;
+}
 
 @media (max-width: 625px) {
   button {
