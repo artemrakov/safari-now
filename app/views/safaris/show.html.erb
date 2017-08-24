@@ -1,14 +1,42 @@
-<div class="show-banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.6) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/259411/pexels-photo-259411.jpeg');">
+<div class="show-banner-box">
 
-  <div class="show-banner-content">
-    <h2><%= @safari.title %></h2>
-    <%= cl_image_tag @user.avatar_url, class: "safari-owner" %>
+<div class="swiper-container">
+  <div class="swiper-wrapper">
+    <% if @safari.safari_images %>
+      <% @safari.safari_images.each do |images_instance| %>
+        <div class="swiper-slide">
+          <%= cl_image_tag images_instance.photo, class: "show-banner", crop: :fill %>
+        </div>
+      <% end %>
+    <% else %>
+      <div class="swiper-slide">
+        <%= cl_image_tag "lkgaqzb9hc9garraymlm.jpg", class: "show-banner" %>
+      </div>
+    <% end %>
 
-  <a class="safari-owner-link" href="#" ></a>
+    <div class="show-banner-content">
+          <h2><%= @safari.title %></h2>
+          <%= cl_image_tag @user.avatar_url, class: "safari-owner" %>
+
+          <a class="safari-owner-link" href="#" ></a>
+    </div>
+
   </div>
+  <!-- Add Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Add Arrows -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
 
 </div>
+</div>
 
+  <!-- <div class="show-banner-content">
+    <h2><%= @safari.title %></h2>
+    <%# cl_image_tag @user.avatar_url, class: "safari-owner" %>
+
+  <a class="safari-owner-link" href="#" ></a>
+  </div> -->
 <div class="container">
 
 <div class="info">
@@ -58,6 +86,19 @@
       });
     });
   </script>
+
+    <%= javascript_tag do %>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        slidesPerView: 1,
+        paginationClickable: true,
+        spaceBetween: 30,
+        keyboardControl: true,
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+    });
+  <% end %>
+
 <% end %>
 
 

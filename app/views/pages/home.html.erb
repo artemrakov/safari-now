@@ -3,9 +3,11 @@
 <% end %>
 
 <div class="home">
-  <div>
+  <div class="search-and-button">
+  <h2 class="main-title">Explore safaris in</h2>
     <%= form_tag safaris_path, :method => 'get', enforce_utf8: false do %>
-      <%= text_field_tag :search, params[:search], placeholder:"Where's your next adventure?", id: "home-search" %>
+      <%= text_field_tag :search, params[:search], placeholder:"Where's your next adventure?", id: "home-search typed" %>
+
       <%= button_tag(type: 'submit')  do %>
         <i class="fa fa-search" aria-hidden="true"></i>
       <% end %>
@@ -22,5 +24,21 @@
     }
   }
 </script>
+
+<%# content_for(:after_js) do %>
+ <script>
+   $(function(){
+        $("#typed").typed({
+          strings: ['South Africa', 'Kenya', 'Ghana', 'Nigeria'],
+          typeSpeed: 100,
+          loop: true,
+          attr: 'placeholder'
+        });
+      });
+ </script>
+
 <% end %>
+
+
+
 
