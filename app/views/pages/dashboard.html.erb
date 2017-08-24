@@ -33,7 +33,13 @@
                 </div>
                 <div class="booking-info">
                   <%# booking.status %>
-                  <p> <%= booking.status.capitalize %> </p>
+                  <% if booking.status == "decline"  %>
+                    <p style="color: red; opacity: 1"> <%= booking.status.capitalize %> </p>
+                  <% elsif booking.status == "accept" %>
+                    <p style="color: green; opacity: 1"> <%= booking.status.capitalize %> </p>
+                  <% else %>
+                    <p style="color: #C0C2C3"> <%= booking.status.capitalize %></p>
+                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -56,7 +62,7 @@
         <h2 class="h2-bookings">Your safaris</h2>
         <div class="all-messages">
              <% current_user.created_safaris.each do |safari| %>
-                <% safari.bookings.each do |booking| %>
+                <% safari.bookings.where(status: "pending").each do |booking| %>
               <div class="dashboard-messages">
                   <% if booking.user.avatar? %>
                     <%= cl_image_tag booking.user.avatar, class: "avatar-dashboard-booking" %>
@@ -78,7 +84,7 @@
                     <p> <i class="fa fa-check green-tick" aria-hidden="true"></i> </p>
                   <% end %>
                   <%= link_to cancel_booking_path(booking.safari, booking.user), method: :patch do %>
-                  <p> <i class="fa fa-times red-tick" aria-hidden="true"></i> </p>
+                    <p> <i class="fa fa-times red-tick" aria-hidden="true"></i> </p>
                   <% end %>
                 </div>
               </div>
