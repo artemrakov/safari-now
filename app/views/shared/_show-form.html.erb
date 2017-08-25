@@ -1,0 +1,6 @@
+<%= simple_form_for [safari, review] do |f| %>
+  <%= f.input :content %>
+  <%= f.input :rating, as: :select, collection: (1..5) %>
+  <%= f.button :submit %>
+<% end %>
+<form action="/safaris" method="post"></form>

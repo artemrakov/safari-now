@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   patch 'cancel_booking/:safari_id/:id', to: 'pages#cancel_booking', as: 'cancel_booking'
   patch 'accept_booking/:safari_id/:id', to: 'pages#accept_booking', as: 'accept_booking'
 
-  resources :safaris
+  resources :safaris do
+    resources :reviews, only: [:create]
+  end
   resources :users, only: [:show, :edit, :update, :destroy]
 end
