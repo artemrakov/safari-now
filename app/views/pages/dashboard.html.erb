@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-3 col-offeset-sm-1">
       <div class="profile-info">
         <% if @user.avatar? %>
-            <%= cl_image_tag @user.avatar.url(:bright_face), class: "avatar-dashboard" %>
+            <%= cl_image_tag @user.avatar.url, class: "avatar-dashboard" %>
         <% elsif !@user.facebook_picture_url.nil? %>
           <%= image_tag @user.facebook_picture_url, class: "avatar-dashboard"  %>
         <% else %>

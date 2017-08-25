@@ -22,6 +22,7 @@ class SafarisController < ApplicationController
     @safari = Safari.find(params[:id])
     @safari_coordinates = { lat: @safari.latitude, lng: @safari.longitude }
     @user = @safari.user
+    @booking = Booking.where(safari_id: @safari.id, user_id: current_user.id).first
   end
 
 

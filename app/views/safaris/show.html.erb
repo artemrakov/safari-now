@@ -41,6 +41,8 @@
       <a class="safari-owner-link" href="#" ></a>
       <div id="book-button">
         <% if current_user == @safari.user %>
+        <% elsif  @booking %>
+          <%= link_to "Already booked", dashboard_path %>
         <% elsif current_user %>
           <%= link_to "Book now", create_booking_path(@safari, current_user), method: :post %>
         <% else %>
