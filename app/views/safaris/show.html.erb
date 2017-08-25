@@ -33,7 +33,8 @@
       <%= cl_image_tag @user.avatar_url(:bright_face), class: "safari-owner" %>
       <a class="safari-owner-link" href="#" ></a>
       <div id="book-button">
-        <% if current_user %>
+        <% if current_user == @safari.user %>
+        <% elsif current_user %>
           <%= link_to "Book now", create_booking_path(@safari, current_user), method: :post %>
         <% else %>
           <%= link_to "Book now", new_user_session_path %>
