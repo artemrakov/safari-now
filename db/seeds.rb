@@ -66,7 +66,9 @@ counter = 1
   safari = Safari.new(
     title: safari_titles.sample,
     address: safari_address, description: descriptions.sample,
-    capacity: (1..10).to_a.sample, price: (100..1000).to_a.sample, date: Faker::Date.forward(23))
+    capacity: (1..10).to_a.sample, price: (100..1000).to_a.sample, date: Faker::Date.forward(23),
+
+    )
   safari.user = User.offset(offset).first
   safari.save
   puts "Created safari number #{counter}"
@@ -80,4 +82,3 @@ counter = 1
   puts "Whew! Just created a Safari Image and set it to Safari number #{@image.safari_id}"
   counter += 1
 end
-
