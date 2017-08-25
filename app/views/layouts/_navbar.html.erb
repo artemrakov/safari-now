@@ -26,7 +26,7 @@
      <div class="navbar-wagon-item">
         <div class="dropdown">
           <% if current_user.avatar? %>
-            <%= cl_image_tag current_user.avatar_url(:bright_face), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+            <%= cl_image_tag current_user.avatar_url(:bright_face), class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown"  %>
           <% elsif !current_user.facebook_picture_url.nil? %>
             <%= image_tag current_user.facebook_picture_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <% else %>
