@@ -6,7 +6,13 @@
   <div class="search-and-button">
   <h2 class="main-title">Explore safaris in</h2>
     <%= form_tag safaris_path, :method => 'get', enforce_utf8: false do %>
-      <%= text_field_tag :search, params[:search], id: "typed" %>
+    <span id="typed-overlay">
+      <%= text_field_tag :search, params[:search], id: "main-search" %>
+      <div id="type">
+        <span id="typed"></span>
+        <span class="typed-cursor"></span>
+      </div>
+    </span>
 
       <%= button_tag(type: 'submit')  do %>
         <i class="fa fa-search" aria-hidden="true"></i>
@@ -16,26 +22,38 @@
 </div>
 
 <% content_for(:after_js) do %>
-<script type="text/javascript">
-  const input = document.querySelectorAll('input');
-    for(i=0; i<input.length; i++){
-      if (input[i].hasAttribute('placeholder')) {
-      input[i].setAttribute('size',input[i].getAttribute('placeholder').length);
-    }
-  }
-</script>
 
-<%# content_for(:after_js) do %>
  <script>
    $(function(){
         $("#typed").typed({
-          strings: ['South Africa', 'Kenya', 'Ghana', 'Nigeria'],
-          typeSpeed: 100,
+          strings: ['South Africa', 'Botswana', 'Kenya', 'Mozambique', 'Namibia', 'Rwanda', 'South Africa', 'Wow TypedJS', 'Tanzania', 'Uganda', 'Zambia', 'Zimbabwe'],
+          typeSpeed: 110,
+          backSpeed: 20,
+          backDelay: 700,
           loop: true,
-          attr: 'placeholder'
+          smartBackspace: true,
         });
       });
  </script>
+
+  <script>
+    var typedOverlay = document.getElementById('typed-overlay');
+    var search = document.getElementById('main-search');
+
+    typedOverlay.addEventListener('mouseenter', hideTyped);
+    search.addEventListener('focus', hideTyped);
+    search.addEventListener('mouseleave', showTyped);
+
+    function hideTyped() {
+      search.focus();
+      document.getElementById('type').style.display = "none";
+    }
+    function showTyped() {
+      if (search.value === "") {
+        search.blur();
+        document.getElementById('type').style.display = "";}
+    }
+  </script>
 
 <% end %>
 

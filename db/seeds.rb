@@ -1,13 +1,10 @@
 require 'faker'
 Booking.destroy_all
 puts "Destroying Bookings"
-puts "Destroyed all bookings"
 Safari.destroy_all
 puts "Destroying Safaris"
-puts "Destroyed them"
 User.destroy_all
-puts "Destroyed users"
-puts "Destroying them too"
+puts "Destroying users"
 
 # Seeding Users
 user_pic_array = [ "http://xdesktopwallpapers.com/wp-content/uploads/2012/07/Scott%20Porter%20Looking%20At%20Camera%20And%20White%20Background.jpg",
@@ -22,8 +19,7 @@ user_pic_array = [ "http://xdesktopwallpapers.com/wp-content/uploads/2012/07/Sco
 counter = 1
 10.times do
   photo_url = user_pic_array.sample
-  full_name = Faker::GameOfThrones.character.split(' ')
-  user = User.create(first_name: full_name[0], last_name: full_name[1], email: Faker::Internet.email, description: Faker::Lorem.paragraph,  password: "password", remote_avatar_url: photo_url)
+  user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email(:first_name), description: Faker::Lorem.paragraphs(6).join("\n"),  password: "password", remote_avatar_url: photo_url)
   puts "Created user number #{counter}"
   counter += 1
 end
@@ -34,23 +30,27 @@ address_array = ["Four Seasons Rd, 2002, Tanzania", "North Serengeti National Pa
   "Tsavo National Park West 34117, Kenya", "Nairobi 80100, Kenya", "Arusha, Tanzania", "2 Serengeti Road, Arusha, Tanzania", "Cape Town Central 7806, South Africa",
   "Kruger National Park 1709, South Africa", "54 Mann Street, George 6529, South Africa", "184 Elsa Street | Strijdompark, Johannesburg 2198, South Africa", "Mombasa 80100, Kenya"]
 
+safari_titles = ['A Taste of the Wild', 'Big Five Flying Safari', 'Born Free Safari', 'From Antelope to Zebra', 'Governors of the Savanna', 'Masai Explorer', 'Masai Mara Safari', 'Discovery Extreme', 'Ultimate Adventure']
+
 counter = 1
 10.times do
+  offset = rand(User.count)
   safari_address = address_array.sample
-  photo_url = "https://source.unsplash.com/collection/141713/1600x900"
   safari = Safari.new(
-    title: Faker::University.name,
-    address: safari_address, description: Faker::Lorem.sentence(240),
-
+    title: safari_titles.sample,
+    address: safari_address, description: Faker::Lorem.paragraphs(10).join("\n"),
     capacity: (1..10).to_a.sample, price: (100..1000).to_a.sample, date: Faker::Date.forward(23))
-  safari.user = User.first
+  safari.user = User.offset(offset).first
   safari.save
   puts "Created safari number #{counter}"
   counter += 1
 end
 
-# Seeding Booking
-book = Booking.new
-book.safari = Safari.first
-book.user = User.first
-book.save
+# Seeding Safari images
+counter = 1
+10.times do
+  @image = SafariImage.create(remote_photo_url: "https://source.unsplash.com/collection/141713/1600x900", safari_id: (1..10).to_a.sample)
+  puts "Whew! Just created a Safari Image and set it to Safari number #{@image.safari_id}"
+  counter += 1
+end
+

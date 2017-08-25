@@ -20,14 +20,7 @@ button{
   font-size: 32px;
   color: #757575;
 }
-#home-search {
-  color: #757575;
-  // border-bottom: 2px solid #EEEEEE;
-  &:focus {
-    outline: none;
-  }
-  font-size: 40px;
-}
+
 .search-and-button {
   margin-bottom: 220px;
   display: flex;
@@ -43,9 +36,35 @@ main-title {
 
 }
 
+#typed-overlay {
+  position: relative;
+}
+
+#type {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
 #typed {
   // font-size: 40px;
-  border-bottom: 2px dashed grey;
+  border-bottom: 2px solid grey;
+}
+
+#main-search {
+  &:focus {
+    outline: none;
+  }
+}
+
+.typed-cursor{
+    opacity: 1;
+    animation: blink 0.7s infinite;
+}
+@keyframes blink{
+0% { opacity:1; }
+50% { opacity:0; }
+100% { opacity:1; }
 }
 
 @media (max-width: 625px) {
