@@ -78,7 +78,7 @@ end
 # Seeding Safari images
 counter = 1
 10.times do
-2.times do
+5.times do
   @image = SafariImage.create(remote_photo_url: "https://source.unsplash.com/collection/932429/1600x900", safari_id: counter)
   puts "Whew! Just created a Safari Image and set it to Safari number #{@image.safari_id}"
 end
