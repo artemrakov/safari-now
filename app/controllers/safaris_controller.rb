@@ -27,12 +27,14 @@ class SafarisController < ApplicationController
     @user = @safari.user
     if current_user
       @booking = Booking.where(safari_id: @safari.id, user_id: current_user.id).first
-      if @booking.status == "accept"
-        @status = @booking.status
-      elsif @booking.status == "decline"
-        @status = @booking.status
-      else
-        @status = @booking.status
+      if @booking
+        if @booking.status == "accept"
+          @status = @booking.status
+        elsif @booking.status == "decline"
+          @status = @booking.status
+        else
+          @status = @booking.status
+        end
       end
     end
   end
