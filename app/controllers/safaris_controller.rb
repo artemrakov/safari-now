@@ -20,6 +20,8 @@ class SafarisController < ApplicationController
 
    def show
     @status = ""
+    @review = Review.new
+    @reviews = Review.all
     @safari = Safari.find(params[:id])
     @safari_coordinates = { lat: @safari.latitude, lng: @safari.longitude }
     @user = @safari.user
