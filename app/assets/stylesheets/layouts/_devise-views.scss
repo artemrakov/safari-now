@@ -59,3 +59,14 @@
   display: flex;
   justify-content: center;
 }
+
+.sign-up-title {
+  text-align: center;
+  font-family: 'Chewy', cursive;
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+abbr[title="required"] {
+  display: none;
+}
