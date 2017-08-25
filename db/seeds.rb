@@ -1,13 +1,10 @@
 require 'faker'
 Booking.destroy_all
 puts "Destroying Bookings"
-puts "Destroyed all bookings"
 Safari.destroy_all
 puts "Destroying Safaris"
-puts "Destroyed them"
 User.destroy_all
-puts "Destroyed users"
-puts "Destroying them too"
+puts "Destroying users"
 
 # Seeding Users
 user_pic_array = [ "http://xdesktopwallpapers.com/wp-content/uploads/2012/07/Scott%20Porter%20Looking%20At%20Camera%20And%20White%20Background.jpg",
@@ -37,14 +34,13 @@ safari_titles = ['A Taste of the Wild', 'Big Five Flying Safari', 'Born Free Saf
 
 counter = 1
 10.times do
-  offset = rand(Model.count)
+  offset = rand(User.count)
   safari_address = address_array.sample
-  photo_url =
   safari = Safari.new(
     title: safari_titles.sample,
     address: safari_address, description: Faker::Lorem.paragraphs(10).join("\n"),
     capacity: (1..10).to_a.sample, price: (100..1000).to_a.sample, date: Faker::Date.forward(23))
-  safari.user = user.offset(offset).first
+  safari.user = User.offset(offset).first
   safari.save
   puts "Created safari number #{counter}"
   counter += 1
