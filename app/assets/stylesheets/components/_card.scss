@@ -24,6 +24,11 @@
   background-color: white;
   margin-bottom: 20px;
   box-shadow: 1px 1px 5px #B0B0B0;
+  transition: 0.3s;
+
+  &:hover {
+    filter: brightness(90%);
+  }
 }
 
 .card-stars {

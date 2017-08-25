@@ -1,9 +1,10 @@
 <div class="col-xs-12 col-sm-6 col-md-4">
+  <%= link_to safari_path(safari) do %>
   <div class="card-info">
 
     <div class="swiper-container">
       <div class="swiper-wrapper">
-        <% unless safari.safari_images == [] %>
+        <% unless safari.safari_images.empty? %>
           <% safari.safari_images.each do |images_instance| %>
           <div class="swiper-slide">
             <div class="card" style="background-image: url('<%= cl_image_path images_instance.photo %>')"></div>
@@ -11,17 +12,16 @@
           <% end %>
         <% else %>
           <div class="swiper-slide">
-          <div class="card" style="background-image: url('<%= cl_image_path "safari-default_ng7zub.jpg" %>')"></div>
+            <div class="card" style="background-image: url('<%= cl_image_path "katie-treadway-253591_hqpbjo" %>')">
+            </div>
           </div>
         <% end %>
       </div>
-      <% if (safari.safari_images != []) || (safari.safari_images.count == 1) %>
-      <!-- Add Pagination -->
+
       <div class="swiper-pagination"></div>
-      <!-- Add Arrows -->
-      <div class="swiper-button-next swiper-button-white"></div>
+
       <div class="swiper-button-prev swiper-button-white"></div>
-      <% end %>
+      <div class="swiper-button-next swiper-button-white"></div>
     </div>
 
     <div class="card-footer-description">
@@ -50,4 +50,5 @@
       </div>
     </div>
   </div>
+  <% end %>
 </div>

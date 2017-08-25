@@ -46,7 +46,7 @@ class PagesController < ApplicationController
   def any_bookings?
     @array_of_saf_with_bookings = []
     current_user.created_safaris.each do |safari|
-      if safari.bookings != []
+      if safari.bookings.where(status: "pending") != []
         @array_of_saf_with_bookings << safari
       end
     end
