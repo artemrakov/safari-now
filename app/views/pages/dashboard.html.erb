@@ -33,7 +33,13 @@
                 </div>
                 <div class="booking-info">
                   <%# booking.status %>
-                  <p> <%= booking.status.capitalize %> </p>
+                  <% if booking.status == "decline"  %>
+                    <p style="color: red; opacity: 1"> <%= booking.status.capitalize %> </p>
+                  <% elsif booking.status == "accept" %>
+                    <p style="color: green; opacity: 1"> <%= booking.status.capitalize %> </p>
+                  <% else %>
+                    <p style="color: #C0C2C3"> <%= booking.status.capitalize %></p>
+                  <% end %>
                 </div>
               </div>
             <% end %>
@@ -50,11 +56,43 @@
     </div>
   </div>
 
- <!--  <div class="row">
-  <h2 class="h2-bookings"> Your safaris </h2>
-    <%# @user.created_safaris.each do |safari| %>
+  <div class="row">
+    <div class="col-xs-12">
+    <div class="category-dashboard-current">
+        <h2 class="h2-bookings">Your safaris</h2>
+        <div class="all-messages">
+             <% current_user.created_safaris.each do |safari| %>
+                <% safari.bookings.where(status: "pending").each do |booking| %>
+              <div class="dashboard-messages">
+                  <% if booking.user.avatar? %>
+                    <%= cl_image_tag booking.user.avatar, class: "avatar-dashboard-booking" %>
+                  <% elsif !booking.user.facebook_picture_url.nil? %>
+                    <%= image_tag booking.user.facebook_picture_url, class: "avatar-dashboard-booking" %>
+                  <% else %>
+                    <%= image_tag "http://placehold.it/50x50", class: "avatar-dashboard-booking" %>
+                  <% end %>
+                  <div class="user-name">
+                    <h4> <%= booking.user.first_name %> <%= booking.user.last_name %> </h4>
+                  </div>
 
-    <%# end %>
+                <div class="safari-message">
+                  <h4> <%= booking.safari.title %> </h4>
+                  <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
+                </div>
+                <div class="booking-info-status">
+                  <%= link_to accept_booking_path(booking.safari, booking.user), method: :patch do  %>
+                    <p> <i class="fa fa-check green-tick" aria-hidden="true"></i> </p>
+                  <% end %>
+                  <%= link_to cancel_booking_path(booking.safari, booking.user), method: :patch do %>
+                    <p> <i class="fa fa-times red-tick" aria-hidden="true"></i> </p>
+                  <% end %>
+                </div>
+              </div>
+              <% end %>
+            <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-</div> -->
+</div>
 
