@@ -1,13 +1,11 @@
- <div class="flexbox">
-   <div class="cards-container">
-     <div class="row">
+<div class="flexbox">
+  <div class="cards-container">
+    <div class="row">
       <% @safaris.each do |safari| %>
-        <%= link_to safari_path(safari) do %>
-            <%= render 'shared/card', safari: safari %>
-          <% end %>
-        <% end %>
-     </div>
-   </div>
+        <%= render 'shared/card', safari: safari %>
+      <% end %>
+    </div>
+  </div>
 
   <div id="map"></div>
 </div>
