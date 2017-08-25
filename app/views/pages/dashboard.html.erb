@@ -70,6 +70,7 @@
   <div class="row">
     <div class="col-xs-12">
     <div class="category-dashboard-current">
+        <% if @current_user.created_safaris != [] &&  @any_bookings != []  %>
         <h2 class="h2-bookings">Your guests</h2>
         <div class="all-messages">
              <% current_user.created_safaris.each do |safari| %>
@@ -85,7 +86,6 @@
                   <div class="user-name">
                     <h4> <%= booking.user.first_name %> <%= booking.user.last_name %> </h4>
                   </div>
-
                 <div class="safari-message">
                   <h4> <%= booking.safari.title %> </h4>
                   <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
@@ -101,6 +101,20 @@
               </div>
               <% end %>
             <% end %>
+         <% elsif @current_user.created_safaris == [] %>
+          <div class="empty-bookings">
+            <div class="button-div">
+            <h2> Your didnt create any safaris </h2>
+              <%= link_to "Create new safary", safaris_path, class: "button-dashboard" %>
+            </div>
+          </div>
+          <% else %>
+            <div class="empty-bookings">
+              <div class="button-div">
+                <h2> Your dont have any guests yet </h2>
+              </div>
+            </div>
+         <% end %>
         </div>
       </div>
     </div>
