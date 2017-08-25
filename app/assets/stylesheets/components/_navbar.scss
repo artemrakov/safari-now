@@ -61,8 +61,9 @@
 /* Right section */
 .navbar-wagon-right {
   display: flex;
-  align-items: center;
   justify-content: flex-end;
+  width: 400px;
+
 }
 
 /* Basic navbar item */
@@ -124,15 +125,82 @@
   width: 200px;
 }
 
-.navbar-wagon .btn-default {
-  border-radius: 0% 50% 50% 0%;
-  width: 50px;
-}
-
-.navbar-wagon .glyphicon {
-  margin-right: 4px;
-}
-
 .navbar-sign-in {
   margin: 0 20px;
 }
+
+.avatar {
+  margin-left: 13px;
+}
+
+
+
+
+// animated search button
+
+.search {
+  display: inline-block;
+  position: relative;
+  height: 35px;
+  width: 35px;
+  box-sizing: border-box;
+  margin: 0px 8px 7px 0px;
+  padding: 7px 9px 0px 9px;
+  border: 3px solid darkgrey;
+  border-radius: 25px;
+  transition: all 200ms ease;
+  cursor: text;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    right: -5px;
+    top: 21px;
+    background: darkgrey;
+    border-radius: 3px;
+    transform: rotate(-45deg);
+    transition: all 200ms ease;
+  }
+
+  &.active,
+  &:hover {
+    width: 200px;
+    margin-right: 0px;
+
+    &:after {
+      height: 0px;
+    }
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: inherit;
+    background: transparent;
+    outline-width: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
