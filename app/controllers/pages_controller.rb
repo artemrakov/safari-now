@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   end
 
   def dashboard
+    @any_bookings = any_bookings?
     if user_signed_in?
       @user = current_user
       @user_bookings = @user.bookings
@@ -40,5 +41,15 @@ class PagesController < ApplicationController
     @booking.status = "accept"
     @booking.save
     redirect_to :dashboard
+  end
+
+  def any_bookings?
+    @array_of_saf_with_bookings = []
+    current_user.created_safaris.each do |safari|
+      if safari.bookings != []
+        @array_of_saf_with_bookings << safari
+      end
+    end
+    @array_of_saf_with_bookings
   end
 end
