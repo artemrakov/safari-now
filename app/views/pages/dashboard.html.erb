@@ -2,8 +2,13 @@
   <div class="row">
     <div class="col-xs-12 col-sm-3 col-offeset-sm-1">
       <div class="profile-info">
-        <% avatar_url = @user.facebook_picture_url || "http://placehold.it/200x200" %>
-        <%= image_tag avatar_url, class: "avatar-dashboard" %>
+        <% if @user.avatar? %>
+            <%= cl_image_tag @user.avatar.url(:bright_face), class: "avatar-dashboard" %>
+        <% elsif !@user.facebook_picture_url.nil? %>
+          <%= image_tag @user.facebook_picture_url, class: "avatar-dashboard"  %>
+        <% else %>
+          <%= image_tag "http://placehold.it/200x200", class: "avatar-dashboard" %>
+        <% end %>
         <div class="profile-links">
         <div class="edit-dashboard">
           <h2> <%= @user.first_name %> </h2>
@@ -19,7 +24,13 @@
         <div class="all-messages">
             <% @user_bookings.each do |booking| %>
               <div class="dashboard-messages">
-                  <%= cl_image_tag booking.safari.user.avatar.url(:bright_face), class: "avatar-dashboard-booking" %>
+                  <% if booking.safari.user.avatar? %>
+                      <%= cl_image_tag booking.safari.user.avatar.url(:bright_face), class: "avatar-dashboard-booking" %>
+                  <% elsif !booking.safari.user.facebook_picture_url.nil? %>
+                    <%= image_tag booking.safari.user.facebook_picture_url, class: "avatar-dashboard-booking"  %>
+                  <% else %>
+                    <%= image_tag "http://placehold.it/30x30", class: "avatar-dashboard-booking" %>
+                  <% end %>
                   <div class="user-name">
                     <h4> <%= booking.safari.user.first_name %> <%= booking.safari.user.last_name %> </h4>
                   </div>
