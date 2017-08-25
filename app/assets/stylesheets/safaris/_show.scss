@@ -13,13 +13,18 @@
 
 .show-banner {
   width: 100%;
+
 }
-.show-banner-content h2 {
-  font-size: 50px;
-  font-weight: bold;
+.show-banner-content  {
+
+  padding: 0px 80px;
+  h2 {
   margin: 20px;
+    font-size: 50px;
+  font-weight: bold;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.2);
   display: flex;
+  }
 }
 .info {
   margin: 20px;
