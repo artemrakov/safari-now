@@ -61,8 +61,10 @@
 /* Right section */
 .navbar-wagon-right {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: flex-end;
+
+
 }
 
 /* Basic navbar item */
@@ -77,11 +79,13 @@
   color: #616668;
   font-size: 16px;
   text-decoration: none;
+  margin: 0px 24px;
 }
 .navbar-wagon-link:hover {
   color: #6FD08C;
   text-decoration: none;
 }
+
 
 /* Dropdown menu */
 .navbar-wagon-dropdown-menu {
@@ -124,15 +128,88 @@
   width: 200px;
 }
 
-.navbar-wagon .btn-default {
-  border-radius: 0% 50% 50% 0%;
-  width: 50px;
-}
-
-.navbar-wagon .glyphicon {
-  margin-right: 4px;
-}
-
 .navbar-sign-in {
   margin: 0 20px;
 }
+
+.avatar {
+  margin-left: 13px;
+}
+
+form {
+  margin-top: 4px;
+}
+
+  #inpt_search {
+    position: relative;
+    bottom: 7px;
+  }
+
+// animated search button
+
+.search {
+  display: inline-block;
+  position: relative;
+  height: 32px;
+  width: 32px;
+  box-sizing: border-box;
+  margin: 0px 8px 7px 0px;
+  padding: 7px 9px 0px 9px;
+  border: 3px solid darkgrey;
+  border-radius: 25px;
+  transition: all 200ms ease;
+  cursor: text;
+
+  &:after {
+    content: "";
+    position: absolute;
+    width: 3px;
+    height: 20px;
+    right: -5px;
+    top: 21px;
+    background: darkgrey;
+    border-radius: 3px;
+    transform: rotate(-45deg);
+    transition: all 200ms ease;
+  }
+
+  &.active,
+  &:hover {
+    width: 200px;
+    margin-right: 0px;
+
+    &:after {
+      height: 0px;
+    }
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    box-sizing: border-box;
+    font-family: Helvetica;
+    font-size: 15px;
+    color: inherit;
+    background: transparent;
+    outline-width: 0px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
