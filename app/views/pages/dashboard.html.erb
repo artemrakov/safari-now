@@ -39,7 +39,9 @@
 
                 <div class="safari-message">
                   <%# booking.safari.title %>
-                  <h4> <%= booking.safari.title %> </h4>
+                  <%= link_to safari_path(booking.safari) do %>
+                    <h4> <%= booking.safari.title %> </h4>
+                  <% end %>
                   <p> <%= truncate(booking.safari.description, :length => 80) %> </p>
                 </div>
                 <div class="booking-info">
@@ -105,13 +107,13 @@
           <div class="empty-bookings">
             <div class="button-div">
             <h2> Your didnt create any safaris </h2>
-              <%= link_to "Create new safary", safaris_path, class: "button-dashboard" %>
+              <%= link_to "Create new safary", new_safari_path, class: "button-dashboard" %>
             </div>
           </div>
           <% else %>
             <div class="empty-bookings">
               <div class="button-div">
-                <h2> Your dont have any guests yet </h2>
+                <h2> Waiting for new guest </h2>
               </div>
             </div>
          <% end %>

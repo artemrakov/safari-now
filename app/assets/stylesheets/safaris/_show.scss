@@ -78,3 +78,24 @@
   margin: 0;
 }
 
+.dialog-show {
+  margin: 120px auto !important;
+}
+
+#review-button {
+  color: white !important;
+  background-color: #6FD08C;
+  opacity: 0.9;
+  border-radius: 10px;
+  text-decoration: none;
+  padding: 10px 15px;
+  margin: 20px;
+  &:hover {
+    color: #6FD08C;
+    opacity: 1;
+  }
+}
+
+.reviews {
+  margin: 20px;
+}
