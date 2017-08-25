@@ -35,14 +35,18 @@
 
           <div class="card-stars">
             <div class="symbols">
-              <% 5.times do  %>
+              <% number = (1..5).to_a.sample.to_i %>
+              <% number.times do  %>
                 <i class="fa fa-star" aria-hidden="true"></i>
+              <% end %>
+              <% (5 - number).times do %>
+                <i class="fa fa-star-o"></i>
               <% end %>
             </div>
           </div>
 
           <div class="card-count">
-            <p> 250 reviews</p>
+            <p> <%= (50..150).to_a.sample %> reviews</p>
           </div>
 
         </div>

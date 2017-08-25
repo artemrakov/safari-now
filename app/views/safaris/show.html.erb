@@ -67,12 +67,14 @@
 
 <!-- Button trigger modal -->
 <div class="review text-center">
-<% if @safari.has_been_booked?(current_user) %>
+<% if current_user %>
+  <% if @safari.has_been_booked?(current_user) %>
 
   <button type="button" class="text-center" id="review-button" data-toggle="modal" data-target="#myModal">
     Add a review
   </button>
-<% end %>
+  <% end %>
+  <% end %>
 
 
 <!-- Modal -->
