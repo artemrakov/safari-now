@@ -1,4 +1,29 @@
 require 'faker'
+require 'nokogiri'
+require 'open-uri'
+
+def get_descriptions
+  url = "https://www.bookallsafaris.com"
+  html = open(url).read
+  noko = Nokogiri::HTML(html)
+  links = noko.css('.caption-section').css('a')
+
+  shows = links.map do |noko_link|
+    url + noko_link.attributes["href"].value
+  end
+
+  descriptions = shows.map do |lol|
+    parse = Nokogiri::HTML(open(lol))
+    paras =  parse.css('p')
+    long_paras =  paras.select do |para|
+      para.text.length > 300
+    end
+    long_paras.first.text
+  end
+
+  return descriptions
+end
+
 Booking.destroy_all
 puts "Destroying Bookings"
 Safari.destroy_all
@@ -25,7 +50,9 @@ counter = 1
 end
 
 # Seeding Safaris
-
+puts "Hold up, I'm scraping descriptions from a website"
+descriptions = get_descriptions
+puts "OK done scraping"
 address_array = ["Four Seasons Rd, 2002, Tanzania", "North Serengeti National Park, Seronera, Tanzania", "Taita Hills Wildlife Sanctuary, Tsavo National Park West, Kenya",
   "Tsavo National Park West 34117, Kenya", "Nairobi 80100, Kenya", "Arusha, Tanzania", "2 Serengeti Road, Arusha, Tanzania", "Cape Town Central 7806, South Africa",
   "Kruger National Park 1709, South Africa", "54 Mann Street, George 6529, South Africa", "184 Elsa Street | Strijdompark, Johannesburg 2198, South Africa", "Mombasa 80100, Kenya"]
@@ -38,7 +65,7 @@ counter = 1
   safari_address = address_array.sample
   safari = Safari.new(
     title: safari_titles.sample,
-    address: safari_address, description: Faker::Lorem.paragraphs(10).join("\n"),
+    address: safari_address, description: descriptions.sample,
     capacity: (1..10).to_a.sample, price: (100..1000).to_a.sample, date: Faker::Date.forward(23))
   safari.user = User.offset(offset).first
   safari.save
