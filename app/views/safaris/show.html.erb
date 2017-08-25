@@ -30,7 +30,7 @@
       <h2><%= @safari.title %></h2>
     </div>
     <div class="book-and-avatar">
-      <%= cl_image_tag @user.avatar_url, class: "safari-owner" %>
+      <%= cl_image_tag @user.avatar_url(:bright_face), class: "safari-owner" %>
       <a class="safari-owner-link" href="#" ></a>
       <div id="book-button">
         <% if current_user %>
