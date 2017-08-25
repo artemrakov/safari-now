@@ -1,3 +1,7 @@
 body {
   padding-top: 70px;
 }
+
+a:focus, button:focus {
+  outline: none;
+}

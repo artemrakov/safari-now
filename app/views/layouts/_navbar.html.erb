@@ -10,7 +10,7 @@
     <% unless current_page?(root_path) && !user_signed_in? %>
       <%= form_tag safaris_path, method: :get do  %>
       <label class="search" for="inpt_search">
-        <%= text_field_tag :search, nil, id: "inpt_search"%>
+        <%= text_field_tag :search, nil, id: "inpt_search" %>
       </label>
     <% end %>
     <%= link_to "Add a Safari", new_safari_path, class: "navbar-wagon-item navbar-wagon-link" %>
