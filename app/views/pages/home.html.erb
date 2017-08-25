@@ -41,6 +41,7 @@
     var search = document.getElementById('main-search');
 
     typedOverlay.addEventListener('mouseenter', hideTyped);
+    search.addEventListener('focus', hideTyped);
     search.addEventListener('mouseleave', showTyped);
 
     function hideTyped() {
