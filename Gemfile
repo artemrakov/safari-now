@@ -29,6 +29,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'faker'
+gem 'newrelic_rpm'
 
 group :development, :test do
   gem 'pry-byebug'
